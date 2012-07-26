@@ -1,0 +1,57 @@
+{
+  "suggestions": {
+  },
+  "replacing": {
+  },
+  "license": "Apache 2.0",
+  "dependencies": {
+    "build-essential": ">= 0.0.0"
+  },
+  "platforms": {
+    "freebsd": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0"
+  },
+  "groupings": {
+  },
+  "attributes": {
+    "python/install_method": {
+      "choice": [
+        "package",
+        "pip",
+        "source"
+      ],
+      "calculated": false,
+      "default": "package",
+      "type": "string",
+      "required": "optional",
+      "display_name": "Python Install Method",
+      "recipes": [
+        "python::default"
+      ],
+      "description": "The method to install Python into the system."
+    }
+  },
+  "conflicting": {
+  },
+  "recommendations": {
+  },
+  "maintainer_email": "cookbooks@opscode.com",
+  "name": "python",
+  "recipes": {
+    "python::pip": "Installs pip from source.",
+    "python::source": "Installs python from source.",
+    "python::package": "Installs python using packages.",
+    "python": "Installs python, pip, and virtualenv",
+    "python::virtualenv": "Installs virtualenv using the python_pip resource."
+  },
+  "maintainer": "Opscode, Inc.",
+  "version": "1.0.4",
+  "providing": {
+  },
+  "long_description": "",
+  "description": "Installs Python, pip and virtualenv. Includes LWRPs for managing Python packages with `pip` and `virtualenv` isolated Python environments."
+}

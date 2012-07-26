@@ -1,0 +1,31 @@
+#
+# Config file for collectd, version 4.
+#
+# Managed by RightScale
+# DO NOT EDIT BY HAND
+#
+Hostname  "<%= @instance_uuid  %>"
+Interval  20
+ReadThreads 5
+
+LoadPlugin syslog
+<Plugin syslog>
+  LogLevel info
+</Plugin>
+
+LoadPlugin network
+<Plugin network>
+  Server "<%= @sketchy_hostname %>" "3011"
+</Plugin>
+
+LoadPlugin interface
+<Plugin interface>
+  Interface "eth0"
+</Plugin>
+
+<% @plugins.each do |plugin| -%>
+LoadPlugin <%= plugin %>
+<% end %>
+
+#this is where other configs go (e.g. mysql.conf)
+Include "<%= @collectd_include_dir %>/*"
