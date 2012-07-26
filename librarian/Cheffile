@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'cron',
+   :git => 'https://github.com/opscode-cookbooks/cron',
+   :ref => 'master'
+
+cookbook 'resolver',
+   :git => 'https://github.com/flaccid/cookbooks',
+   :path => 'cookbooks/resolver',
+   :ref => 'master'
+
+cookbook 'rs_utils',
+   :git => 'https://github.com/flaccid/cookbooks_public',
+   :path => 'cookbooks/rs_utils',
+   :ref => 'master'
+
+cookbook 'python',
+   :git => 'https://github.com/flaccid/cookbooks',
+   :path => 'cookbooks/python',
+   :ref => 'master'
+      
+cookbook 'ruby',
+   :git => 'https://github.com/flaccid/cookbooks',
+   :path => 'cookbooks/ruby',
+   :ref => 'master'
