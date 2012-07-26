@@ -14,13 +14,18 @@ Follow the VirtualBox documentation to install VirtualBox if not already install
 
 	sudo gem install vagrant --no-rdoc --no-ri
 
+###Clone the linux_server Blueprint
+
+	mkdir -p ~/src
+	git clone git://github.com/rightscale-blueprints/linux_server.git
+	cd linux_server/vagrant
+
 ###Run with Vagrant
 
 Run the following commands to launch a new virtual machine with Vagrant:
 
-	cd vagrant
 	vagrant box add linux_server http://files.vagrantup.com/precise64.box
-	#vagrant box add ~/Binaries/vagrant/boxes/precise64.box
+	#vagrant box add linux_server ~/Binaries/vagrant/boxes/precise64.box
 	vagrant up
 
 ##Directories in repository
