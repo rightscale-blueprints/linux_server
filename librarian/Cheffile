@@ -42,3 +42,8 @@ cookbook 'rubygems',
    :git => 'https://github.com/flaccid/cookbooks',
    :path => 'cookbooks/rubygems',
    :ref => 'master'
+
+cookbook 'sudo',
+   :git => 'https://github.com/flaccid/cookbooks',
+   :path => 'cookbooks/sudo',
+   :ref => 'master'
