@@ -27,15 +27,8 @@ Run the following commands to launch a new virtual machine with Vagrant:
 	vagrant box add linux_server http://files.vagrantup.com/precise64.box
 	#vagrant box add linux_server ~/Binaries/vagrant/boxes/precise64.box
 	vagrant up
-
-#Erata
-
-##Directories in this repository
-
-	cookbooks/			Librarian stored (cached) upstream cookbooks from Cheffile.
-	examples/			Examples folder for Chef, Chef Solo.
-	librarian/			Librarian folder for Cheffile templates.
-	vagrant/			Vagrant project folder
+	
+This uses the Vagrantfile in the vagrant/ folder (and the examples/chef-solo/node.json for the Chef Solo provisioning).
 
 #Using Librarian
 
@@ -45,4 +38,15 @@ Run the following commands to launch a new virtual machine with Vagrant:
 
 ##Updating cookbooks
 
+To refresh the cookbooks in cookbooks/ per the Cheffile, run the following:
+
 	librarian-chef install
+	
+#Erata
+
+##Directories in this repository
+
+	cookbooks/			Librarian stored (cached) upstream cookbooks from Cheffile.
+	examples/			Examples folder for Chef, Chef Solo.
+	librarian/			Librarian folder for Cheffile templates.
+	vagrant/			Vagrant project folder
