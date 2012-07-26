@@ -25,12 +25,12 @@ Follow the VirtualBox documentation to install VirtualBox if not already install
 
 Already up'd a linux_server box?
 
-	#vagrant status                 # check vm status
-	#vagrant reload                 # reload the vm
-	#vagrant suspend                # suspend the vm
-	#vagrant halt                   # power down the vm
-	#vagrant destroy                # destroy the vm
-	#vagrant box remove mediawiki   # remove the box
+	#vagrant status                   # check vm status
+	#vagrant reload                   # reload the vm
+	#vagrant suspend                  # suspend the vm
+	#vagrant halt                     # power down the vm
+	#vagrant destroy                  # destroy the vm
+	#vagrant box remove linux_server  # remove the box
 
 Add a new box from local or remote (Ubuntu 12.04)
 
