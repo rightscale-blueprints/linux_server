@@ -1,0 +1,3 @@
+{
+  "run_list": [ "recipe[rs_utils]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[ntp]", "recipe[postfix]", "recipe[python]" ]
+}
