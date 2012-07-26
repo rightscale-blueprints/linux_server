@@ -22,11 +22,11 @@ Follow the VirtualBox documentation to install VirtualBox if not already install
 
 ##Directories in repository
 
-cookbooks/			Librarian stored (cached) upstream cookbooks from Cheffile.
-examples/			Examples folder for Chef, Chef Solo.
-librarian/			Librarian folder for Cheffile templates.
-vagrant/			Vagrant project folder
+	cookbooks/			Librarian stored (cached) upstream cookbooks from Cheffile.
+	examples/			Examples folder for Chef, Chef Solo.
+	librarian/			Librarian folder for Cheffile templates.
+	vagrant/			Vagrant project folder
 
 #Updating cookbooks
 
-librarian-chef install
+	librarian-chef install
