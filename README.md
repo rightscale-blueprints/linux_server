@@ -1,5 +1,9 @@
 #Quick Start
 
+##RightScale
+
+TBR on the forthcoming RightScale Linux Server RL 5.8 ServerTemplate.
+
 ##Install Librarian
 
 	sudo gem install librarian --no-rdoc --no-ri
@@ -16,8 +20,11 @@ Follow the VirtualBox documentation to install VirtualBox if not already install
 
 ###Run with Vagrant
 
+Run the following commands to launch a new virtual machine with Vagrant:
+
 	cd vagrant
-	vagrant box add linux_server ~/Binaries/vagrant/boxes/preciese64.box
+	vagrant box add linux_server http://files.vagrantup.com/precise64.box
+	#vagrant box add ~/Binaries/vagrant/boxes/precise64.box
 	vagrant up
 
 ##Directories in repository
