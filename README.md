@@ -8,9 +8,17 @@
 
 ###Install VirtualBox
 
+Follow the VirtualBox documentation to install VirtualBox if not already installed.
+
 ###Install Vagrant
 
 	sudo gem install vagrant --no-rdoc --no-ri
+
+###Run with Vagrant
+
+	cd vagrant
+	vagrant box add linux_server ~/Binaries/vagrant/boxes/preciese64.box
+	vagrant up
 
 ##Directories in repository
 
