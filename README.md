@@ -4,10 +4,6 @@
 
 TBR on the forthcoming RightScale Linux Server RL 5.8 ServerTemplate.
 
-##Install Librarian
-
-	sudo gem install librarian --no-rdoc --no-ri
-
 ##VirtualBox with Vagrant
 
 ###Install VirtualBox
@@ -34,6 +30,12 @@ Run the following commands to launch a new virtual machine with Vagrant:
 	librarian/			Librarian folder for Cheffile templates.
 	vagrant/			Vagrant project folder
 
-#Updating cookbooks
+#Using Librarian
+
+##Install Librarian
+
+	sudo gem install librarian --no-rdoc --no-ri
+
+##Updating cookbooks
 
 	librarian-chef install
