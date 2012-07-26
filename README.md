@@ -16,7 +16,8 @@ Follow the VirtualBox documentation to install VirtualBox if not already install
 
 ###Clone the linux_server Blueprint
 
-	mkdir -p ~/src
+	mkdir -p ~/src/github/rightscale-blueprints
+	cd ~/src/github/rightscale-blueprints
 	git clone git://github.com/rightscale-blueprints/linux_server.git
 	cd linux_server/vagrant
 
