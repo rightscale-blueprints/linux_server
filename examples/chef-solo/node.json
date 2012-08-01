@@ -10,5 +10,5 @@
       "include_sudoers_d":"true"
     }
   },
-  "run_list": [ "recipe[system]", "recipe[rightscale]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]" ]
+  "run_list": [ "recipe[system]", "recipe[rightscale]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[python]", "recipe[ruby]", "recipe[rubygems]" ]
 }
