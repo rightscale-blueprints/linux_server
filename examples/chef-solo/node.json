@@ -1,3 +1,6 @@
 {
-  "run_list": [ "recipe[rs_utils]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[ntp]", "recipe[postfix]", "recipe[python]", "recipe[ruby]", "recipe[rubygems]" ]
+  "system": {
+    "timezone":"America/Los_Angeles"
+  },
+  "run_list": [ "recipe[system]", "recipe[rightscale]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[python]", "recipe[ruby]", "recipe[rubygems]" ]
 }
