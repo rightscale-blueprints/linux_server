@@ -41,9 +41,10 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/system
   ref: master
-  sha: c9a2978a06be2264d498e57864fa7ec935eb1f14
+  sha: 01dc3e4e36aa1755dcb69e12868487647fb329a0
   specs:
     system (0.0.1)
+      cron (>= 0.0.0)
 
 GIT
   remote: https://github.com/opscode-cookbooks/cron
