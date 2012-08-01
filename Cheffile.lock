@@ -2,53 +2,29 @@ SITE
   remote: http://community.opscode.com/api/v1
   specs:
     build-essential (1.1.0)
-
-GIT
-  remote: https://github.com/flaccid/cookbooks
-  path: cookbooks/cron
-  ref: master
-  sha: 216a9f371f734761967cb6810afa074cdb81f9e6
-  specs:
-    cron (1.0.1)
-
-GIT
-  remote: https://github.com/flaccid/cookbooks
-  path: cookbooks/ntp
-  ref: master
-  sha: 216a9f371f734761967cb6810afa074cdb81f9e6
-  specs:
-    ntp (1.1.9)
-
-GIT
-  remote: https://github.com/flaccid/cookbooks
-  path: cookbooks/postfix
-  ref: master
-  sha: 216a9f371f734761967cb6810afa074cdb81f9e6
-  specs:
-    postfix (1.2.0)
-
-GIT
-  remote: https://github.com/flaccid/cookbooks
-  path: cookbooks/python
-  ref: master
-  sha: 216a9f371f734761967cb6810afa074cdb81f9e6
-  specs:
-    python (1.0.4)
-      build-essential (>= 0.0.0)
+    yum (0.8.0)
 
 GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/resolver
   ref: master
-  sha: 216a9f371f734761967cb6810afa074cdb81f9e6
+  sha: c9a2978a06be2264d498e57864fa7ec935eb1f14
   specs:
     resolver (0.8.2)
 
 GIT
   remote: https://github.com/flaccid/cookbooks
+  path: cookbooks/rightscale
+  ref: master
+  sha: 887c77c9227df86760caf80cc3632625b5fddb0c
+  specs:
+    rightscale (0.0.1)
+
+GIT
+  remote: https://github.com/flaccid/cookbooks
   path: cookbooks/ruby
   ref: master
-  sha: 216a9f371f734761967cb6810afa074cdb81f9e6
+  sha: c9a2978a06be2264d498e57864fa7ec935eb1f14
   specs:
     ruby (0.0.1)
 
@@ -56,26 +32,55 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rubygems
   ref: master
-  sha: 216a9f371f734761967cb6810afa074cdb81f9e6
+  sha: c9a2978a06be2264d498e57864fa7ec935eb1f14
   specs:
     rubygems (0.0.1)
       ruby (>= 0.0.0)
 
 GIT
   remote: https://github.com/flaccid/cookbooks
-  path: cookbooks/sudo
+  path: cookbooks/system
   ref: master
-  sha: 216a9f371f734761967cb6810afa074cdb81f9e6
+  sha: c9a2978a06be2264d498e57864fa7ec935eb1f14
   specs:
-    sudo (1.1.1)
+    system (0.0.1)
 
 GIT
-  remote: https://github.com/flaccid/cookbooks_public
-  path: cookbooks/rs_utils
+  remote: https://github.com/opscode-cookbooks/cron
   ref: master
-  sha: e9ca703b6dae8204f6e1ce42dedd31f20d2f8810
+  sha: cc9ce3c83ce8bafa327664803ab63a05182c5ce4
   specs:
-    rs_utils (0.0.1)
+    cron (1.0.1)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/ntp
+  ref: master
+  sha: 3991185e38b07a09f8a6a4994dc6d778670a11a2
+  specs:
+    ntp (1.1.9)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/postfix
+  ref: master
+  sha: e2a1a3079a4f7839ee8b85d4e5523eaaf94bb825
+  specs:
+    postfix (1.2.0)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/python
+  ref: master
+  sha: e7d06b4db5aec229a4737b8025482df013ebaefe
+  specs:
+    python (1.0.8)
+      build-essential (>= 0.0.0)
+      yum (>= 0.0.0)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/sudo
+  ref: master
+  sha: e08de50f3d9327edb55676b1b6adb113ddc819dc
+  specs:
+    sudo (1.1.1)
 
 DEPENDENCIES
   cron (>= 0)
@@ -83,8 +88,9 @@ DEPENDENCIES
   postfix (>= 0)
   python (>= 0)
   resolver (>= 0)
-  rs_utils (>= 0)
+  rightscale (>= 0)
   ruby (>= 0)
   rubygems (>= 0)
   sudo (>= 0)
+  system (>= 0)
 
