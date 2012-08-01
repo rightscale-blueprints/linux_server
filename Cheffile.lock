@@ -5,6 +5,14 @@ SITE
     yum (0.8.0)
 
 GIT
+  remote: https://github.com/AtariTech/cookbooks.git
+  path: collectd
+  ref: master
+  sha: 37aea60edd7926ab408440054811fbe627a39260
+  specs:
+    collectd (1.0.0)
+
+GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/resolver
   ref: master
@@ -16,9 +24,10 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rightscale
   ref: master
-  sha: 00aee69b8c17347652244b3f6568f33c6a3f9c0a
+  sha: 74b1d19ff1524aae835f3588df655c502eaec2f0
   specs:
     rightscale (0.0.1)
+      collectd (>= 0.0.0)
 
 GIT
   remote: https://github.com/flaccid/cookbooks
@@ -84,6 +93,7 @@ GIT
     sudo (1.1.1)
 
 DEPENDENCIES
+  collectd (>= 0)
   cron (>= 0)
   ntp (>= 0)
   postfix (>= 0)
