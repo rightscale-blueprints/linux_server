@@ -1,9 +1,8 @@
 #
-# Cookbook Name:: ntp
+# Cookbook Name:: sudo
 # Recipe:: default
-# Author:: Joshua Timberman (<joshua@opscode.com>)
 #
-# Copyright 2009, Opscode, Inc
+# Copyright 2008-2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,29 +15,38 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-node['ntp']['packages'].each do |ntppkg|
-  package ntppkg
+package "sudo" do
+  action platform?("freebsd") ? :install : :upgrade
 end
 
-[ node['ntp']['varlibdir'],
-  node['ntp']['statsdir'] ].each do |ntpdir|
-  directory ntpdir do
-    owner node['ntp']['var_owner']
-    group node['ntp']['var_group']
+if node['authorization']['sudo']['include_sudoers_d']
+  directory "/etc/sudoers.d" do
     mode 0755
+    owner "root"
+    group "root"
+    action :create
+  end
+  cookbook_file "/etc/sudoers.d/README" do
+    cookbook "sudo"
+    source "README.sudoers"
+    mode 0440
+    owner "root"
+    group "root"
+    action :create
   end
 end
 
-service node['ntp']['service'] do
-  supports :status => true, :restart => true
-  action [ :enable, :start ]
-end
-
-template "/etc/ntp.conf" do
-  source "ntp.conf.erb"
-  owner node['ntp']['conf_owner'] 
-  group node['ntp']['conf_group']
-  mode "0644"
-  notifies :restart, resources(:service => node['ntp']['service'])
+template "/etc/sudoers" do
+  source "sudoers.erb"
+  mode 0440
+  owner "root"
+  group platform?("freebsd") ? "wheel" : "root"
+  variables(
+    :sudoers_groups => node['authorization']['sudo']['groups'],
+    :sudoers_users => node['authorization']['sudo']['users'],
+    :passwordless => node['authorization']['sudo']['passwordless'],
+    :include_sudoers_d => node['authorization']['sudo']['include_sudoers_d']
+  )
 end

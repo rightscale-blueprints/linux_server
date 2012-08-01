@@ -1,154 +1,146 @@
-# NTP [![Build Status](https://secure.travis-ci.org/opscode-cookbooks/ntp.png?branch=master)](http://travis-ci.org/opscode-cookbooks/ntp)
+DESCRIPTION
+===========
 
-## Description
+This cookbook installs sudo and configures the /etc/sudoers file.
 
-Installs and configures ntp, optionally configure ntpdate on debian family platforms.
+REQUIREMENTS
+============
 
-### About the refactor
+Requires that the platform has a package named sudo and the sudoers file is /etc/sudoers.
 
-This recipe was heavily re-factored as a Hackday exercise at Chefconf 2012.
-The purpose of refactoring was to have a simple community cookbook which
-serves as a testing documentation reference.  We chose a lightweight testing method
-using minitest to validate the sanity of our default attributes.
+ATTRIBUTES
+==========
 
-More information on our testing strategy used in this cookbook is available
-in the TESTING.  Along with information on how to use this type of lightweight
-testing in your own cookbooks.
+The following attributes are set to blank arrays:
 
-#### IMPORTANT NOTES
+    node['authorization']['sudo']['groups']
+    node['authorization']['sudo']['users']
 
-Breaking changes are the absence of an ntp::disable recipe.  This was factored
-out into an ntp::undo corresponding to the default recipe and a separate
-ntp::ntpdate recipe.
+They are passed into the sudoers template which iterates over the values to add sudo permission to the specified users and groups.
 
-The ntp::undo recipe stops and removes ntp components.  The ntp::ntpdate
-recipe configures the ntpdate component.  The ntp['ntpdate']['disable'] boolean
-will disable the ntpdate-debian command on Debian family distributions.
+If you prefer to use passwordless sudo just set the following attribute to true:
 
-## Requirements
+    node['authorization']['sudo']['passwordless']
 
-Should work on Red Hat-family and Debian-family Linux distributions, or FreeBSD.
+This attribute controls whether or not to include the /etc/sudoers.d
+directory, it default to false. If you set it to true, the default
+recipe will create the directory /etc/sudoers.d and put the
+placeholder file README there
 
-# Attributes
+    node['authorization']['sudo']['include_sudoers_d']
 
-## Recommended tunables
+USAGE
+=====
 
-* ntp['servers'] (applies to NTP Servers and Clients)
+You can create sudoer entries in two ways,
 
-  - Array, should be a list of upstream NTP public servers.  The NTP protocol
-    works best with at least 3 servers.  The NTPD maximum is 7 upstream
-    servers, any more than that and some of them will be ignored by the daemon.
+- populating the node['authorization']['sudo']  properties
+- using the sudo lwrp
 
-* ntp['peers'] (applies to NTP Servers ONLY)
+To use this cookbook, set the attributes above on the node via a role or the node object itself. In a role.rb:
 
-  - Array, should be a list of local NTP private servers.  Configuring peer
-    servers on your LAN will reduce traffic to upstream time sources, and
-    provide higher availability of NTP on your LAN.  Again the maximum is 7
-    peers
-
-* ntp['restrictions'] (applies to NTP Servers only)
-
-  - Array, should be a list of restrict lines to restrict access to NTP
-    clients on your LAN.
-
-* ntp['ntpdate']['disable']
-
-  - Boolean, disables the use of ntpdate-debian if set to true.
-  - Defaults to false, and will not disable ntpdate.  There is usually no
-    init service to manage with ntpdate.  Therefore it should not conflict
-    with ntpd in most cases.
-
-## Platform specific
-
-* ntp['packages']
-
-  - Array, the packages to install
-  - Default, ntp for everything, ntpdate depending on platform
-
-* ntp['service']
-
-  - String, the service to act on
-  - Default, ntp or ntpd, depending on platform
-
-* ntp['driftfile']
-
-  - String, the path to the frequency file.
-  - Default, platform-specific location.
-
-* ntp['varlibdir']
-
-  - String, the path to /var/lib files such as the driftfile.
-  - Default, platform-specific location.
-
-* ntp['statsdir']
-
-  - String, the directory path for files created by the statistics facility.
-  - Default, platform-specific location.
-
-* ntp['conf\_owner'] and ntp['conf\_group']
-
-  - String, the owner and group of the sysconf directory files, such as /etc/ntp.conf.
-  - Default, platform-specific root:root or root:wheel
-
-* ntp['var\_owner'] and ntp['var\_group']
-
-  - String, the owner and group of the /var/lib directory files, such as /var/lib/ntp.
-  - Default, platform-specific ntp:ntp or root:wheel
-
-## Usage
-
-### default recipe
-
-Set up the ntp attributes in a role. For example in a base.rb role applied to all nodes:
-
-    name "base"
-    description "Role applied to all systems"
-    default_attributes(
-      "ntp" => {
-        "servers" => ["time0.int.example.org", "time1.int.example.org"]
+    "authorization" => {
+      "sudo" => {
+        "groups" => ["admin", "wheel", "sysadmin"],
+        "users" => ["jerry", "greg"],
+        "passwordless" => true
       }
-    )
+    }
 
-Then in an ntpserver.rb role that is applied to NTP servers (e.g., time.int.example.org):
+In JSON (role.json or on the node object):
 
-    name "ntp_server"
-    description "Role applied to the system that should be an NTP server."
-    default_attributes(
-      "ntp" => {
-        "is_server" => "true",
-        "servers" => ["0.pool.ntp.org", "1.pool.ntp.org"],
-        "peers" => ["time0.int.example.org", "time1.int.example.org"],
-        "restrictions" => ["10.0.0.0 mask 255.0.0.0 nomodify notrap"]
+    "authorization": {
+      "sudo": {
+        "groups": [
+          "admin",
+          "wheel",
+          "sysadmin"
+        ],
+        "users": [
+          "jerry",
+          "greg"
+        ],
+        "passwordless": true
       }
-    )
+    }
 
-The timeX.int.example.org used in these roles should be the names or IP addresses of internal NTP servers.
-Then simply add ntp, or ntp::default to your run\_list to apply the ntp daemon's configuration.
+Note that the template for the sudoers file has the group "sysadmin" with ALL:ALL permission, though the group by default does not exist.
 
-### ntpdate recipe
+sudo LWRP
+=========
 
-On Debian-family platforms, and newer versions of RedHat, there is a separate ntpdate package.
+**Note** Sudo version 1.7.2 or newer is required to use the sudo LWRP
+  as it relies on the "#includedir" directive introduced in version
+  1.7.2. The recipe does not enforce installing the version. To use
+  this LWRP, set `node['authorization']['sudo']['include_sudoers_d']`
+  to `true`.
 
-You may blank out the ntpdate configuration file by overriding ntp['ntpdate']['disable'] to `true`.
-Then include the ntp::ntpdate recipe in your run\_list.
+This is a fairly complex LWRP for managing sudoers fragment files in
+/etc/sudoers.d. It has two modes, "natural" mode which mimics the
+sudoers file interface and "template" mode where you supply a regular
+erb template and hash of variables. For "template" mode, the sudo lwrp
+simply ensures that resulting sudo fragment passes validation and has
+the proper filesystem permissions.
 
-You may re-enable the ntpdate configuration by ensuring ntp['ntpdate']['disable'] is `false`.
-Then include the ntp::ntpdate recipe in your run\_list.
+In either mode, the sudo lwrp will render a sudoers fragment in
+/etc/sudoers.d/
 
-### undo recipe
+In the case that the sudoers fragment does not pass validation, this
+lwrp will fail the chef-client run before the fragment can be copied
+to /etc/sudoers.d. This prevents the corruption of your sudoers configuration.
 
-If for some reason you need to stop and remove the ntp daemon, you can apply this recipe by adding
-ntp::undo to your run\_list.
+Example of the default mode, "natural" mode
 
-## License and Author
+    sudo "tomcat" do
+      user "%tomcat" # or a username
+      runas "app_user" # or "app_user : tomcat"
+      commands ["/etc/init.d/tomcat restart"] # array of commands, will be .join(",")
+      host "ALL"
+      nopasswd false # true prepends the runas_spec with NOPASSWD
+    end
 
-Author:: Joshua Timberman (<joshua@opscode.com>)
-Contributor:: Eric G. Wolfe (<wolfe21@marshall.edu>)
-Contributor:: Fletcher Nichol (<fletcher@nichol.ca>)
+
+Example of template mode
+
+    sudo "tomcat"
+      # this template must exist in the calling cookbook
+      template "restart_tomcat.erb"
+      variables( :cmds => [ "/etc/init.d/tomcat restart" ] )
+    end
+
+In either case, the following file would be generated in /etc/sudoers.d/tomcat
+
+     # this file was generated by chef
+     %tomcat ALL=(app_user) /etc/init.d/tomcat restart
+
+Description of all attributes
+
+* :name -- name of the file to be created in /etc/sudoers.d/ ,
+  defaults to the name you use for the resource. An exception will be
+  thrown if th
+* :user -- user to provide sudo privileges to
+* :group -- same as user except "%" is prepended to the name in
+case it is not already
+* :commands -- an array of commands that the user/group can execute using
+sudo, must use the full path for each command, otherwise the resulting
+fragment will fail validation
+* :nopasswd -- whether or not a password must be supplied when
+invoking sudo
+* :template -- a template file in the current cookbook (not the sudo
+cookbook), currently must be an erb template
+* :variables -- variables to use with the template
+
+If you use the template attribute, all other attributes will be
+ignored except for the variables attribute.
+
+LICENSE AND AUTHOR
+==================
+
+Author:: Bryan W. Berry <bryan.berry@gmail.com>
+Author:: Adam Jacob <adam@opscode.com>
+Author:: Seth Chisamore <schisamo@opscode.com>
 
 Copyright 2009-2011, Opscode, Inc.
-Copyright 2012, Eric G. Wolfe
-Copyright 2012, Fletcher Nichol
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
