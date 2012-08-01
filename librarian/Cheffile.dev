@@ -47,3 +47,8 @@ cookbook 'postfix',
 cookbook 'python',
    :git => 'https://github.com/opscode-cookbooks/python',
    :ref => 'master'
+
+cookbook 'collectd',
+   :git => 'https://github.com/AtariTech/cookbooks.git',
+   :path => 'collectd',
+   :ref => 'master'
