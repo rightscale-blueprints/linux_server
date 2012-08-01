@@ -18,27 +18,38 @@
 # limitations under the License.
 #
 
-( log "archlinux not currently supported due to bug" and return ) if platform?('archlinux')
-
-python_pkgs = value_for_platform(
-  ["debian","ubuntu"] => {
-    "default" => ["python","python-dev","python-setuptools","python-pip"]
-  },
-  ["centos","redhat","fedora"] => {
-    "default" => ["python26","python26-devel"]
-  },
-  ["freebsd"] => {
-    "default" => ["python"]
-  },
-  ["arch"] => {
-    "default" => ["python"]
-  },
-  "default" => ["python"]
-)
-
-if platform?('centos') and node['platform_version'] == '6.2'
-  python_pkgs = [ "python", "python-devel" ]
+# COOK-1016 Handle RHEL/CentOS namings of python packages, by installing EPEL repo & package
+# This implementation was determined a stopgap measure until CHEF-2410 is implemented and widespread.
+if node['platform'] == 'centos' || node['platform'] == 'redhat'
+  major_version = node['platform_version'].split('.').first.to_i
+  if major_version == 5
+    include_recipe 'yum::epel'
+  else
+    # Do nothing.
+  end
 end
+
+python_pkgs = if node['platform'] == 'centos' || node['platform'] == 'redhat'
+                major_version = node['platform_version'].split('.').first.to_i
+                if major_version == 6
+                  ["python", "python-devel"]
+                else
+                  ["python26", "python26-devel"]
+                end
+              else
+                value_for_platform(
+                                   ["debian","ubuntu"] => {
+                                     "default" => ["python","python-dev"]
+                                   },
+                                   ["fedora","amazon"] => {
+                                     "default" => ["python","python-devel"]
+                                   },
+                                   ["freebsd"] => {
+                                     "default" => ["python"]
+                                   },
+                                   "default" => ["python","python-dev"]
+                                   )
+              end
 
 python_pkgs.each do |pkg|
   package pkg do

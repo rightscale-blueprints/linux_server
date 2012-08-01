@@ -9,4 +9,3 @@ version          "1.0.1"
   supports os
 end
 
-recipe "cron::default", "Installs the cron package and starts the crond service."

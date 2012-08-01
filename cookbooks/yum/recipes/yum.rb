@@ -1,8 +1,8 @@
 #
-# Author:: Seth Chisamore <schisamo@opscode.com>
-# Cookbook Name:: python
-# Recipe:: default
+# Cookbook Name:: yum
+# Recipe:: yum 
 #
+# Copyright 2011, Eric G. Wolfe
 # Copyright 2011, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,6 +18,6 @@
 # limitations under the License.
 #
 
-include_recipe "python::#{node['python']['install_method']}"
-include_recipe "python::pip"
-include_recipe "python::virtualenv"
+template "/etc/yum.conf" do
+  source "yum-rhel#{node['platform_version'].to_i}.conf.erb"
+end

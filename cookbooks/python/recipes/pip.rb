@@ -18,25 +18,24 @@
 # limitations under the License.
 #
 
-# this recipe needs updating to support all platforms and gracefully address pkg bugs
+python_bindir = "#{node['python']['prefix_dir']}/bin"
+pip_bindir    = "#{node['python']['pip']['prefix_dir']}/bin"
 
-# Ubuntu's python-setuptools, python-pip and python-virtualenv packages 
+# Ubuntu's python-setuptools, python-pip and python-virtualenv packages
 # are broken...this feels like Rubygems!
 # http://stackoverflow.com/questions/4324558/whats-the-proper-way-to-install-pip-virtualenv-and-distribute-for-python
 # https://bitbucket.org/ianb/pip/issue/104/pip-uninstall-on-ubuntu-linux
 remote_file "#{Chef::Config[:file_cache_path]}/distribute_setup.py" do
   source "http://python-distribute.org/distribute_setup.py"
   mode "0644"
-  not_if "which pip > /dev/null 2>&1"
+  not_if { ::File.exists?("#{pip_bindir}/pip") }
 end
-
-use_version = node['python']['distribute_install_py_version']
 
 bash "install-pip" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOF
-  python#{use_version} distribute_setup.py
-  easy_install pip
+  #{python_bindir}/python distribute_setup.py
+  #{pip_bindir}/easy_install pip
   EOF
-  not_if "which pip > /dev/null 2>&1"
+  not_if { ::File.exists?("#{pip_bindir}/pip") }
 end

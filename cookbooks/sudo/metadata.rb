@@ -1,45 +1,44 @@
 maintainer        "Opscode, Inc."
 maintainer_email  "cookbooks@opscode.com"
 license           "Apache 2.0"
-description       "Installs sudo and configures /etc/sudoers"
-version           "1.1.1"
+description       "Installs and configures ntp as a client or server"
+long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version           "1.1.9"
+recipe "ntp", "Installs and configures ntp either as a server or client"
 
-recipe "sudo", "Installs sudo and configures /etc/sudoers"
-
-%w{redhat centos fedora ubuntu debian freebsd}.each do |os|
+%w{ ubuntu debian redhat centos fedora scientific amazon oracle freebsd }.each do |os|
   supports os
 end
 
-attribute "authorization",
-  :display_name => "Authorization",
-  :description => "Hash of Authorization attributes",
+attribute "ntp",
+  :display_name => "NTP",
+  :description => "Hash of NTP attributes",
   :type => "hash"
 
-attribute "authorization/sudo",
-  :display_name => "Authorization Sudoers",
-  :description => "Hash of Authorization/Sudo attributes",
-  :type => "hash"
-
-attribute "authorization/sudo/users",
-  :display_name => "Sudo Users",
-  :description => "Users who are allowed sudo ALL",
+attribute "ntp/servers",
+  :display_name => "NTP Servers",
+  :description => "Array of servers we should talk to",
   :type => "array",
-  :default => ""
+  :default => ["0.pool.ntp.org", "1.pool.ntp.org", "2.pool.ntp.org", "3.pool.ntp.org" ],
+  :required => "recommended"
 
-attribute "authorization/sudo/groups",
-  :display_name => "Sudo Groups",
-  :description => "Groups who are allowed sudo ALL",
+attribute "ntp/peers",
+  :display_name => "NTP Peers",
+  :description => "Array of local NTP servers, we should peer with",
   :type => "array",
-  :default => ""
+  :default => [],
+  :required => "recommended"
 
-attribute "authorization/sudo/passwordless",
-  :display_name => "Passwordless Sudo",
-  :description => "",
-  :type => "string",
-  :default => "false"
+attribute "ntp/restrictions",
+  :display_name => "Restriction lines",
+  :description => "Array of restriction lines to apply to NTP servers",
+  :type => "array",
+  :default => [],
+  :required => "recommended"
 
-attribute "authorization/sudo/include_sudoers_d",
-  :display_name => "Include sudoers.d",
-  :description => "Whether to create the sudoers.d includedir",
+attribute "ntp/ntpdate/disable",
+  :display_name => "ntpdate-debian script disable",
+  :description => "Defaults to false. Set to true to disable ntpdate-debian script",
   :type => "string",
-  :default => "false"
+  :default => "false",
+  :required => "recommended"
