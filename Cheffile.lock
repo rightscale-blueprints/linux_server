@@ -12,6 +12,14 @@ GIT
     collectd (1.0.0)
 
 GIT
+  remote: https://github.com/coderanger/chef-collectd_plugins
+  ref: master
+  sha: d8e264da9ad982dc75978e48c14a9323db553378
+  specs:
+    collectd_plugins (1.0.0)
+      collectd (>= 0.0.0)
+
+GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/resolver
   ref: master
@@ -100,6 +108,7 @@ GIT
 
 DEPENDENCIES
   apache2 (>= 0)
+  collectd_plugins (>= 0)
   cron (>= 0)
   ntp (>= 0)
   postfix (>= 0)

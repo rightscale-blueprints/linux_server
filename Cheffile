@@ -52,10 +52,11 @@ cookbook 'python',
   :git => 'https://github.com/opscode-cookbooks/python',
   :ref => 'master'
 
+# currently using un-pushed flaccid fork
 #cookbook 'collectd',
 #  :git => 'https://github.com/coderanger/chef-collectd',
 #  :ref => 'master'
 
-#cookbook 'collectd_plugins',
-#  :git => 'https://github.com/coderanger/chef-collectd_plugins',
-#  :ref => 'master'
+cookbook 'collectd_plugins',
+  :git => 'https://github.com/coderanger/chef-collectd_plugins',
+  :ref => 'master'
