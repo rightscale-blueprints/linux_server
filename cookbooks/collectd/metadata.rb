@@ -50,13 +50,13 @@ attribute "collectd/read_threads",
   :default => "5",
   :recipes => [ "collectd::default" ]
 
-attribute "collectd/servers",
-  :display_name => "collectd Servers",
-  :description => "The collectd servers to send to as a client.",
-  :required => "optional",
-  :default => nil,
-  :type => "array",
-  :recipes => [ "collectd::client" ]
+#attribute "collectd/servers",
+#  :display_name => "collectd Servers",
+#  :description => "The collectd servers to send to as a client.",
+#  :required => "optional",
+#  :default => nil,
+#  :type => "array",
+#  :recipes => [ "collectd::client" ]
 
 attribute "collectd/hostname",
   :display_name => "collectd Hostname",
