@@ -11,7 +11,7 @@
     }
   },
   "collectd" : {
-    "servers": [ "foo.bar.suf" ], 
+    "servers": [ "some_sketchy.host" ], 
     "hostname": "foobar",
     "fqdn_lookup": "false"
   },
