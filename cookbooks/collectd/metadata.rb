@@ -33,7 +33,8 @@ attribute "collectd/types_db",
   :display_name => "collectd Types Database",
   :description => "The location of the collectd types.db file.",
   :required => "optional",
-  :default => "/usr/share/collectd/types.db",
+  :type => "array",
+  :default => [ "/usr/share/collectd/types.db" ],
   :recipes => [ "collectd::default" ]
 
 attribute "collectd/interval",
