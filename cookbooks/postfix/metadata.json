@@ -1,4 +1,268 @@
 {
+  "license": "Apache 2.0",
+  "maintainer_email": "cookbooks@opscode.com",
+  "version": "1.2.0",
+  "dependencies": {
+  },
+  "maintainer": "Opscode, Inc.",
+  "groupings": {
+  },
+  "recommendations": {
+  },
+  "description": "Installs and configures postfix for client or outbound relayhost, or to do SASL auth",
+  "name": "postfix",
+  "attributes": {
+    "postfix/smtp_sasl_user_name": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix SMTP SASL Username",
+      "choice": [
+
+      ],
+      "description": "User to auth SMTP via SASL",
+      "default": "",
+      "recipes": [
+
+      ]
+    },
+    "postfix/mydomain": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix Mydomain",
+      "choice": [
+
+      ],
+      "description": "Sets the mydomain value in main.cf",
+      "default": "domain",
+      "recipes": [
+
+      ]
+    },
+    "postfix/smtp_tls_cafile": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix SMTP TLS CA File",
+      "choice": [
+
+      ],
+      "description": "CA certificate file for SMTP over TLS",
+      "default": "/etc/postfix/cacert.pem",
+      "recipes": [
+
+      ]
+    },
+    "postfix/smtp_sasl_auth_enable": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix SMTP SASL Auth Enable",
+      "choice": [
+
+      ],
+      "description": "Enable SMTP SASL Authentication",
+      "default": "no",
+      "recipes": [
+
+      ]
+    },
+    "postfix/mail_relay_networks": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix Mail Relay Networks",
+      "choice": [
+
+      ],
+      "description": "Sets the mynetworks value in main.cf",
+      "default": "127.0.0.0/8",
+      "recipes": [
+
+      ]
+    },
+    "postfix/aliases": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix mail aliases",
+      "choice": [
+
+      ],
+      "description": "Hash of mail aliases for /etc/aliases",
+      "default": "",
+      "recipes": [
+
+      ]
+    },
+    "postfix/multi_environment_relay": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix Search for relayhost in any environment",
+      "choice": [
+
+      ],
+      "description": "If true, then the client recipe will search any environment instead of just the node's",
+      "default": "",
+      "recipes": [
+
+      ]
+    },
+    "postfix/smtp_sasl_security_options": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix SMTP SASL Security Options",
+      "choice": [
+
+      ],
+      "description": "Sets the value of smtp_sasl_security_options in main.cf",
+      "default": "noanonymous",
+      "recipes": [
+
+      ]
+    },
+    "postfix/relayhost": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix Relayhost",
+      "choice": [
+
+      ],
+      "description": "Sets the relayhost value in main.cf",
+      "default": "",
+      "recipes": [
+
+      ]
+    },
+    "postfix/myhostname": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix Myhostname",
+      "choice": [
+
+      ],
+      "description": "Sets the myhostname value in main.cf",
+      "default": "fqdn",
+      "recipes": [
+
+      ]
+    },
+    "postfix/mail_type": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix Mail Type",
+      "choice": [
+
+      ],
+      "description": "Is this node a client or server?",
+      "default": "client",
+      "recipes": [
+
+      ]
+    },
+    "postfix": {
+      "calculated": false,
+      "type": "hash",
+      "required": "optional",
+      "display_name": "Postfix",
+      "choice": [
+
+      ],
+      "description": "Hash of Postfix attributes",
+      "recipes": [
+
+      ]
+    },
+    "postfix/relayhost_role": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix Relayhost's role",
+      "choice": [
+
+      ],
+      "description": "String containing the role name",
+      "default": "relayhost",
+      "recipes": [
+
+      ]
+    },
+    "postfix/smtp_sasl_passwd": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix SMTP SASL Password",
+      "choice": [
+
+      ],
+      "description": "Password for smtp_sasl_user_name",
+      "default": "",
+      "recipes": [
+
+      ]
+    },
+    "postfix/smtp_use_tls": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix SMTP Use TLS?",
+      "choice": [
+
+      ],
+      "description": "Whether SMTP SASL Auth should use TLS encryption",
+      "default": "yes",
+      "recipes": [
+
+      ]
+    },
+    "postfix/myorigin": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix Myorigin",
+      "choice": [
+
+      ],
+      "description": "Sets the myorigin value in main.cf",
+      "default": "$myhostname",
+      "recipes": [
+
+      ]
+    },
+    "postfix/smtp_sasl_password_maps": {
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "display_name": "Postfix SMTP SASL Password Maps",
+      "choice": [
+
+      ],
+      "description": "hashmap of SASL passwords",
+      "default": "hash:/etc/postfix/sasl_passwd",
+      "recipes": [
+
+      ]
+    }
+  },
+  "providing": {
+  },
+  "conflicting": {
+  },
+  "platforms": {
+    "amazon": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "scientific": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0"
+  },
+  "long_description": "",
   "recipes": {
     "postfix::server": "Sets the mail_type attribute to master",
     "postfix::client": "Searches for the relayhost based on an attribute",
@@ -6,272 +270,8 @@
     "postfix": "Installs and configures postfix",
     "postfix::sasl_auth": "Set up postfix to auth to a server with sasl"
   },
-  "attributes": {
-    "postfix/relayhost_role": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "relayhost",
-      "display_name": "Postfix Relayhost's role",
-      "description": "String containing the role name",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/myhostname": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "fqdn",
-      "display_name": "Postfix Myhostname",
-      "description": "Sets the myhostname value in main.cf",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/smtp_sasl_password_maps": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "hash:/etc/postfix/sasl_passwd",
-      "display_name": "Postfix SMTP SASL Password Maps",
-      "description": "hashmap of SASL passwords",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/mail_type": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "client",
-      "display_name": "Postfix Mail Type",
-      "description": "Is this node a client or server?",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/smtp_use_tls": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "yes",
-      "display_name": "Postfix SMTP Use TLS?",
-      "description": "Whether SMTP SASL Auth should use TLS encryption",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/smtp_sasl_passwd": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "",
-      "display_name": "Postfix SMTP SASL Password",
-      "description": "Password for smtp_sasl_user_name",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/mydomain": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "domain",
-      "display_name": "Postfix Mydomain",
-      "description": "Sets the mydomain value in main.cf",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/aliases": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "",
-      "display_name": "Postfix mail aliases",
-      "description": "Hash of mail aliases for /etc/aliases",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/smtp_sasl_security_options": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "noanonymous",
-      "display_name": "Postfix SMTP SASL Security Options",
-      "description": "Sets the value of smtp_sasl_security_options in main.cf",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/relayhost": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "",
-      "display_name": "Postfix Relayhost",
-      "description": "Sets the relayhost value in main.cf",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "display_name": "Postfix",
-      "description": "Hash of Postfix attributes",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "hash"
-    },
-    "postfix/multi_environment_relay": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "",
-      "display_name": "Postfix Search for relayhost in any environment",
-      "description": "If true, then the client recipe will search any environment instead of just the node's",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/smtp_sasl_user_name": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "",
-      "display_name": "Postfix SMTP SASL Username",
-      "description": "User to auth SMTP via SASL",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/smtp_tls_cafile": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "/etc/postfix/cacert.pem",
-      "display_name": "Postfix SMTP TLS CA File",
-      "description": "CA certificate file for SMTP over TLS",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/smtp_sasl_auth_enable": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "no",
-      "display_name": "Postfix SMTP SASL Auth Enable",
-      "description": "Enable SMTP SASL Authentication",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/mail_relay_networks": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "127.0.0.0/8",
-      "display_name": "Postfix Mail Relay Networks",
-      "description": "Sets the mynetworks value in main.cf",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    },
-    "postfix/myorigin": {
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "default": "$myhostname",
-      "display_name": "Postfix Myorigin",
-      "description": "Sets the myorigin value in main.cf",
-      "required": "optional",
-      "choice": [
-
-      ],
-      "type": "string"
-    }
-  },
-  "maintainer_email": "cookbooks@opscode.com",
-  "long_description": "",
-  "recommendations": {
-  },
-  "maintainer": "Opscode, Inc.",
-  "providing": {
-  },
-  "suggestions": {
-  },
-  "dependencies": {
-  },
-  "version": "1.2.0",
-  "groupings": {
-  },
   "replacing": {
   },
-  "description": "Installs and configures postfix for client or outbound relayhost, or to do SASL auth",
-  "name": "postfix",
-  "conflicting": {
-  },
-  "platforms": {
-    "ubuntu": ">= 0.0.0",
-    "scientific": ">= 0.0.0",
-    "amazon": ">= 0.0.0",
-    "redhat": ">= 0.0.0",
-    "debian": ">= 0.0.0",
-    "centos": ">= 0.0.0"
-  },
-  "license": "Apache 2.0"
+  "suggestions": {
+  }
 }

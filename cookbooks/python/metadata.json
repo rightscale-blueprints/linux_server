@@ -1,42 +1,42 @@
 {
-  "version": "1.0.8",
-  "recipes": {
-    "python::pip": "Installs pip from source.",
-    "python::package": "Installs python using packages.",
-    "python::virtualenv": "Installs virtualenv using the python_pip resource.",
-    "python": "Installs python, pip, and virtualenv",
-    "python::source": "Installs python from source."
-  },
-  "description": "Installs Python, pip and virtualenv. Includes LWRPs for managing Python packages with `pip` and `virtualenv` isolated Python environments.",
-  "name": "python",
-  "groupings": {
-  },
-  "attributes": {
+  "conflicting": {
   },
   "providing": {
   },
-  "suggestions": {
+  "groupings": {
   },
-  "recommendations": {
+  "version": "1.0.8",
+  "recipes": {
+    "python::source": "Installs python from source.",
+    "python": "Installs python, pip, and virtualenv",
+    "python::pip": "Installs pip from source.",
+    "python::virtualenv": "Installs virtualenv using the python_pip resource.",
+    "python::package": "Installs python using packages."
   },
+  "long_description": "",
   "replacing": {
   },
   "dependencies": {
     "yum": ">= 0.0.0",
     "build-essential": ">= 0.0.0"
   },
-  "license": "Apache 2.0",
-  "conflicting": {
+  "recommendations": {
   },
-  "long_description": "",
   "maintainer_email": "cookbooks@opscode.com",
+  "maintainer": "Opscode, Inc.",
+  "description": "Installs Python, pip and virtualenv. Includes LWRPs for managing Python packages with `pip` and `virtualenv` isolated Python environments.",
   "platforms": {
-    "ubuntu": ">= 0.0.0",
-    "debian": ">= 0.0.0",
-    "freebsd": ">= 0.0.0",
     "centos": ">= 0.0.0",
     "redhat": ">= 0.0.0",
-    "fedora": ">= 0.0.0"
+    "ubuntu": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "freebsd": ">= 0.0.0",
+    "debian": ">= 0.0.0"
   },
-  "maintainer": "Opscode, Inc."
+  "attributes": {
+  },
+  "suggestions": {
+  },
+  "license": "Apache 2.0",
+  "name": "python"
 }

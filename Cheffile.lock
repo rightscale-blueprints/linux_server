@@ -5,10 +5,9 @@ SITE
     yum (0.8.0)
 
 GIT
-  remote: https://github.com/AtariTech/cookbooks.git
-  path: collectd
+  remote: https://github.com/coderanger/chef-collectd
   ref: master
-  sha: 37aea60edd7926ab408440054811fbe627a39260
+  sha: 8073564ae6703800dacc19189d87ad7c0c5b77aa
   specs:
     collectd (1.0.0)
 
@@ -56,6 +55,13 @@ GIT
       cron (>= 0.0.0)
 
 GIT
+  remote: https://github.com/opscode-cookbooks/apache2
+  ref: master
+  sha: 440912c13a039a3cc978c97f1a361e8c1129eff6
+  specs:
+    apache2 (1.1.13)
+
+GIT
   remote: https://github.com/opscode-cookbooks/cron
   ref: master
   sha: cc9ce3c83ce8bafa327664803ab63a05182c5ce4
@@ -93,7 +99,7 @@ GIT
     sudo (1.1.1)
 
 DEPENDENCIES
-  collectd (>= 0)
+  apache2 (>= 0)
   cron (>= 0)
   ntp (>= 0)
   postfix (>= 0)
