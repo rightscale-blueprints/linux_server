@@ -6,6 +6,8 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "1.0.0"
 supports         "ubuntu"
 
+depends "apache2"
+
 %w{ debian ubuntu centos redhat fedora }.each do |os|
   supports os
 end
