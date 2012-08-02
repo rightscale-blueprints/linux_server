@@ -10,5 +10,10 @@
       "include_sudoers_d":"true"
     }
   },
-  "run_list": [ "recipe[system]", "recipe[rightscale]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]" ]
+  "collectd" : {
+    "servers": [ "some_sketchy.host" ], 
+    "hostname": "foobar",
+    "fqdn_lookup": "false"
+  },
+  "run_list": [ "recipe[system]", "recipe[rightscale]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[python]", "recipe[ruby]", "recipe[rubygems]" ]
 }
