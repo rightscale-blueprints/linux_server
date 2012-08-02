@@ -1,42 +1,42 @@
 {
-  "version": "1.0.8",
   "replacing": {
   },
-  "recommendations": {
+  "version": "1.0.8",
+  "name": "python",
+  "providing": {
   },
-  "suggestions": {
-  },
-  "license": "Apache 2.0",
-  "groupings": {
+  "long_description": "",
+  "recipes": {
+    "python::source": "Installs python from source.",
+    "python": "Installs python, pip, and virtualenv",
+    "python::virtualenv": "Installs virtualenv using the python_pip resource.",
+    "python::package": "Installs python using packages.",
+    "python::pip": "Installs pip from source."
   },
   "conflicting": {
   },
-  "providing": {
-  },
-  "recipes": {
-    "python": "Installs python, pip, and virtualenv",
-    "python::pip": "Installs pip from source.",
-    "python::source": "Installs python from source.",
-    "python::package": "Installs python using packages.",
-    "python::virtualenv": "Installs virtualenv using the python_pip resource."
-  },
-  "attributes": {
-  },
-  "maintainer": "Opscode, Inc.",
-  "maintainer_email": "cookbooks@opscode.com",
-  "long_description": "",
-  "description": "Installs Python, pip and virtualenv. Includes LWRPs for managing Python packages with `pip` and `virtualenv` isolated Python environments.",
   "dependencies": {
     "build-essential": ">= 0.0.0",
     "yum": ">= 0.0.0"
   },
-  "platforms": {
-    "ubuntu": ">= 0.0.0",
-    "redhat": ">= 0.0.0",
-    "freebsd": ">= 0.0.0",
-    "debian": ">= 0.0.0",
-    "fedora": ">= 0.0.0",
-    "centos": ">= 0.0.0"
+  "maintainer_email": "cookbooks@opscode.com",
+  "recommendations": {
   },
-  "name": "python"
+  "platforms": {
+    "centos": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "freebsd": ">= 0.0.0"
+  },
+  "attributes": {
+  },
+  "description": "Installs Python, pip and virtualenv. Includes LWRPs for managing Python packages with `pip` and `virtualenv` isolated Python environments.",
+  "license": "Apache 2.0",
+  "suggestions": {
+  },
+  "maintainer": "Opscode, Inc.",
+  "groupings": {
+  }
 }
