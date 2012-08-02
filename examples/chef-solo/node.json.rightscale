@@ -1,3 +1,19 @@
 {
-  "run_list": [ "recipe[system]", "recipe[rightscale]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[python]", "recipe[ruby]", "recipe[rubygems]", "recipe[rubygems::install_gems]" ]
+  "system": {
+    "timezone":"America/Los_Angeles"
+  },
+  "authorization": {
+    "sudo": {
+      "groups": [ "vagrant" ],
+      "users": [ "vagrant" ],
+      "passwordless":"true",
+      "include_sudoers_d":"true"
+    }
+  },
+  "collectd" : {
+    "servers": [ "foo.bar.suf" ], 
+    "hostname": "01-1234ABC",
+    "fqdn_lookup": "false"
+  },
+ "run_list": [ "recipe[system]", "recipe[rightscale]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[python]", "recipe[ruby]", "recipe[rubygems]", "recipe[rubygems::install_gems]" ]
 }
