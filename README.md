@@ -48,7 +48,7 @@ Run the virtual machine
 	# vagrant up!
 	vagrant up
 	
-This uses the Vagrantfile in the vagrant/ folder (and the examples/chef-solo/node.json for the Chef Solo provisioning).
+This uses the `Vagrantfile` in the `vagrant/` folder (and the `examples/chef-solo/node.json` for the Chef Solo provisioning).
 
 ##Chef Solo
 
@@ -65,7 +65,7 @@ Its also possible to run with the cookbooks source as remote. This is handy beca
 
 	sudo chef-solo -r https://github.com/rightscale-blueprints/linux_server/tarball/master
 	
-And with a specific tag such as Rev1:
+And with a specific tag such as `Rev1`:
 
 	sudo chef-solo -r https://github.com/rightscale-blueprints/linux_server/tarball/rev1
 
@@ -79,7 +79,7 @@ For more information on using Chef Solo, see http://wiki.opscode.com/display/che
 
 ##Updating cookbooks
 
-To refresh the cookbooks in cookbooks/ per the Cheffile, run the following:
+To refresh the cookbooks in `cookbooks/` per the `Cheffile`, run the following:
 
 	librarian-chef install
 	
