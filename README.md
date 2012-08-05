@@ -2,7 +2,9 @@
 
 ##RightScale
 
-TBR on the forthcoming RightScale Linux Server RL 5.8 ServerTemplate.
+The latest revision (always tested) is available in the RightScale Marketplace with the RightScale Linux Server RL 5.8 ServerTemplate (http://www.rightscale.com/library/server_templates/RightScale-Linux-Server-RL-5-8/lineage/15982).
+
+Simply import the ServerTemplate from the marketplace, add a server to a deployment and launch!
 
 ##VirtualBox with Vagrant
 
