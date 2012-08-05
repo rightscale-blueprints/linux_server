@@ -1,3 +1,66 @@
+#Description
+
+A RightScale Blueprint for a Linux Server.
+
+#Requirements
+
+* Chef 0.10.10 or higher (earlier versions may work with some cookbooks/recipes)
+* A Linux host
+
+#Usage
+
+See the Quick Start below to get started.
+
+##Cookbooks
+
+The following core cookbooks are included:
+
+* system
+* resolver
+* rightscale
+* collectd
+* sudo
+* ntp
+* postfix
+* python
+* ruby
+* rubygems
+
+Additional/depends cookbooks:
+
+* apache2
+* build-essential
+* collectd_plugins
+* cron
+* yum
+
+See the `Cheffile.lock` for details on their upstream sources.
+
+##Chef Attributes
+
+See the `examples/chef-solo` folder for examples on attribute usage using a `node.json`.
+Here is a summary of the main Chef node attributes (analog to RightScale Inputs) that are configurable:
+
+* authorization/sudo/groups
+* authorization/sudo/include_sudoers_d
+* authorization/sudo/passwordless
+* authorization/sudo/users
+* collectd/fqdn_lookup
+* collectd/hostname
+* collectd/servers
+* ntp/ntpdate/disable
+* ntp/peers
+* ntp/restrictions
+* ntp/servers
+* postfix/mail_relay_networks (plus all postfix cookbook attributes)
+* resolver/nameservers
+* resolver/search
+* ruby/install_source
+* rubygems/gems_install
+* system/domain_name
+* system/short_hostname
+* system/timezone
+
 #Quick Start
 
 ##RightScale
