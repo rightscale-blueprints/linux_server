@@ -87,7 +87,7 @@ To refresh the cookbooks in `cookbooks/` per the `Cheffile`, run the following:
 
 ##Directories and files in this repository
 
-The root of the repository contains `Cheffile` and `Cheffile.lock` files from librarian. A shells cript, `update-metadata.sh` is provided to re-generate particular cookbooks `metadata.json` (such as upstream cookbooks that do not include a `metadata.json`).
+The root of the repository contains `Cheffile` and `Cheffile.lock` files from librarian. A shell script, `update-metadata.sh` is provided to re-generate particular cookbooks `metadata.json` (such as upstream cookbooks that do not include a `metadata.json`).
 
 	cookbooks/			Librarian stored (cached) upstream cookbooks from `Cheffile`.
 	examples/			Examples folder for Chef, Chef Solo.
