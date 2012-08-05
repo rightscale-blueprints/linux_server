@@ -50,6 +50,27 @@ Run the virtual machine
 	
 This uses the Vagrantfile in the vagrant/ folder (and the examples/chef-solo/node.json for the Chef Solo provisioning).
 
+##Chef Solo
+
+Using the Vagrant/VirtualBox process above is recommended for desktop/workstations users and will provide an operational Linux server out-of-box.
+The instructions below demonstrate usage with Chef Solo standalone. Commands are relative the root of the Git checkout.
+
+	sudo chef-solo -c examples/chef-solo/solo.rb
+	
+By default this uses the `examples/chef-solo/node.json`. You can easily switch the JSON attributes used with another example:
+
+	sudo chef-solo -c examples/chef-solo/solo.rb -j examples/chef-solo/node.json.minimal
+	
+Its also possible to run with the cookbooks source as remote. This is handy because no Git checkout is needed:
+
+	sudo chef-solo -r https://github.com/rightscale-blueprints/linux_server/tarball/master
+	
+And with a specific tag such as Rev1:
+
+	sudo chef-solo -r https://github.com/rightscale-blueprints/linux_server/tarball/rev1
+
+For more information on using Chef Solo, see http://wiki.opscode.com/display/chef/Chef+Solo
+
 #Using Librarian
 
 ##Install Librarian
