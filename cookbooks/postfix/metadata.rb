@@ -28,6 +28,12 @@ attribute "postfix/mail_type",
   :description => "Is this node a client or server?",
   :default => "client"
 
+attribute "postfix/append_dot_mydomain",
+  :display_name => "Postfix Append Dot MyDomain",
+  :description => "Sets the append_dot_my_domain in main.cf",
+  :default => "yes",
+  :choice => [ "yes", "no" ]
+
 attribute "postfix/myhostname",
   :display_name => "Postfix Myhostname",
   :description => "Sets the myhostname value in main.cf",

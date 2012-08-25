@@ -15,6 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+default['postfix']['append_dot_mydomain'] = "yes"
 default['postfix']['mail_type']  = "client"
 default['postfix']['myhostname'] = fqdn
 default['postfix']['mydomain']   = domain
