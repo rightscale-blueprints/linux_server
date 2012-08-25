@@ -1,42 +1,42 @@
 {
-  "conflicting": {
-  },
-  "providing": {
-  },
   "groupings": {
   },
-  "version": "1.0.8",
-  "recipes": {
-    "python::source": "Installs python from source.",
-    "python": "Installs python, pip, and virtualenv",
-    "python::pip": "Installs pip from source.",
-    "python::virtualenv": "Installs virtualenv using the python_pip resource.",
-    "python::package": "Installs python using packages."
-  },
-  "long_description": "",
+  "description": "Installs Python, pip and virtualenv. Includes LWRPs for managing Python packages with `pip` and `virtualenv` isolated Python environments.",
   "replacing": {
   },
-  "dependencies": {
-    "yum": ">= 0.0.0",
-    "build-essential": ">= 0.0.0"
+  "providing": {
   },
   "recommendations": {
   },
   "maintainer_email": "cookbooks@opscode.com",
-  "maintainer": "Opscode, Inc.",
-  "description": "Installs Python, pip and virtualenv. Includes LWRPs for managing Python packages with `pip` and `virtualenv` isolated Python environments.",
   "platforms": {
-    "centos": ">= 0.0.0",
+    "freebsd": ">= 0.0.0",
     "redhat": ">= 0.0.0",
     "ubuntu": ">= 0.0.0",
     "fedora": ">= 0.0.0",
-    "freebsd": ">= 0.0.0",
+    "centos": ">= 0.0.0",
     "debian": ">= 0.0.0"
   },
-  "attributes": {
-  },
+  "long_description": "",
+  "name": "python",
   "suggestions": {
   },
-  "license": "Apache 2.0",
-  "name": "python"
+  "maintainer": "Opscode, Inc.",
+  "version": "1.0.8",
+  "attributes": {
+  },
+  "conflicting": {
+  },
+  "dependencies": {
+    "build-essential": ">= 0.0.0",
+    "yum": ">= 0.0.0"
+  },
+  "recipes": {
+    "python::virtualenv": "Installs virtualenv using the python_pip resource.",
+    "python::package": "Installs python using packages.",
+    "python": "Installs python, pip, and virtualenv",
+    "python::pip": "Installs pip from source.",
+    "python::source": "Installs python from source."
+  },
+  "license": "Apache 2.0"
 }

@@ -1,118 +1,118 @@
 {
-  "conflicting": {
-  },
-  "name": "sudo",
+  "description": "Installs sudo and configures /etc/sudoers",
   "maintainer_email": "cookbooks@opscode.com",
-  "long_description": "",
   "version": "1.1.1",
+  "recommendations": {
+  },
+  "dependencies": {
+  },
+  "groupings": {
+  },
+  "suggestions": {
+  },
+  "long_description": "",
   "attributes": {
-    "authorization/sudo/passwordless": {
-      "default": "false",
-      "calculated": false,
-      "type": "string",
-      "description": "",
-      "recipes": [
-
-      ],
-      "display_name": "Passwordless Sudo",
-      "required": "optional",
-      "choice": [
-
-      ]
-    },
     "authorization/sudo/users": {
-      "default": "",
-      "calculated": false,
-      "type": "array",
       "description": "Users who are allowed sudo ALL",
+      "default": "",
       "recipes": [
 
       ],
-      "display_name": "Sudo Users",
-      "required": "optional",
       "choice": [
 
-      ]
-    },
-    "authorization": {
+      ],
       "calculated": false,
-      "type": "hash",
-      "description": "Hash of Authorization attributes",
-      "recipes": [
-
-      ],
-      "display_name": "Authorization",
       "required": "optional",
-      "choice": [
-
-      ]
+      "type": "array",
+      "display_name": "Sudo Users"
     },
     "authorization/sudo/include_sudoers_d": {
-      "default": "false",
-      "calculated": false,
-      "type": "string",
       "description": "Whether to create the sudoers.d includedir",
+      "default": "false",
       "recipes": [
 
       ],
-      "display_name": "Include sudoers.d",
-      "required": "optional",
       "choice": [
 
-      ]
-    },
-    "authorization/sudo/groups": {
-      "default": "",
+      ],
       "calculated": false,
-      "type": "array",
-      "description": "Groups who are allowed sudo ALL",
+      "required": "optional",
+      "type": "string",
+      "display_name": "Include sudoers.d"
+    },
+    "authorization/sudo/passwordless": {
+      "description": "",
+      "default": "false",
       "recipes": [
 
       ],
-      "display_name": "Sudo Groups",
-      "required": "optional",
       "choice": [
 
-      ]
+      ],
+      "calculated": false,
+      "required": "optional",
+      "type": "string",
+      "display_name": "Passwordless Sudo"
     },
     "authorization/sudo": {
-      "calculated": false,
-      "type": "hash",
       "description": "Hash of Authorization/Sudo attributes",
       "recipes": [
 
       ],
-      "display_name": "Authorization Sudoers",
-      "required": "optional",
       "choice": [
 
-      ]
+      ],
+      "calculated": false,
+      "required": "optional",
+      "type": "hash",
+      "display_name": "Authorization Sudoers"
+    },
+    "authorization/sudo/groups": {
+      "description": "Groups who are allowed sudo ALL",
+      "default": "",
+      "recipes": [
+
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "type": "array",
+      "display_name": "Sudo Groups"
+    },
+    "authorization": {
+      "description": "Hash of Authorization attributes",
+      "recipes": [
+
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "type": "hash",
+      "display_name": "Authorization"
     }
   },
-  "platforms": {
-    "debian": ">= 0.0.0",
-    "ubuntu": ">= 0.0.0",
-    "centos": ">= 0.0.0",
-    "freebsd": ">= 0.0.0",
-    "fedora": ">= 0.0.0",
-    "redhat": ">= 0.0.0"
+  "replacing": {
   },
-  "recommendations": {
-  },
-  "description": "Installs sudo and configures /etc/sudoers",
+  "license": "Apache 2.0",
   "recipes": {
     "sudo": "Installs sudo and configures /etc/sudoers"
   },
-  "dependencies": {
-  },
-  "license": "Apache 2.0",
-  "replacing": {
-  },
   "providing": {
   },
-  "suggestions": {
+  "name": "sudo",
+  "conflicting": {
   },
-  "maintainer": "Opscode, Inc.",
-  "groupings": {
-  }
+  "platforms": {
+    "freebsd": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "redhat": ">= 0.0.0"
+  },
+  "maintainer": "Opscode, Inc."
 }

@@ -19,13 +19,9 @@
 
 include_recipe "collectd"
 
-if node['collectd']['servers'] or Chef::Config[:solo]
-  servers = node['collectd']['servers']
-else
-  servers = []
-  search(:node, 'recipes:"collectd::server"') do |n|
-    servers << n['fqdn']
-  end
+servers = []
+search(:node, 'recipes:"collectd::server"') do |n|
+  servers << n['fqdn']
 end
 
 if servers.empty?
