@@ -45,7 +45,7 @@ cookbook 'sudo',
   :ref => 'master'
 
 cookbook 'postfix',
-  :git => 'https://github.com/opscode-cookbooks/postfix',
+  :git => 'https://github.com/flaccid/postfix',
   :ref => 'master'
 
 cookbook 'python',

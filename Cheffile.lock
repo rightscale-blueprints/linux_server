@@ -63,6 +63,13 @@ GIT
       cron (>= 0.0.0)
 
 GIT
+  remote: https://github.com/flaccid/postfix
+  ref: master
+  sha: 1ad44cc13cab5fc081cbf387112211127c084f6a
+  specs:
+    postfix (1.2.0)
+
+GIT
   remote: https://github.com/opscode-cookbooks/apache2
   ref: master
   sha: 440912c13a039a3cc978c97f1a361e8c1129eff6
@@ -82,13 +89,6 @@ GIT
   sha: 3991185e38b07a09f8a6a4994dc6d778670a11a2
   specs:
     ntp (1.1.9)
-
-GIT
-  remote: https://github.com/opscode-cookbooks/postfix
-  ref: master
-  sha: e2a1a3079a4f7839ee8b85d4e5523eaaf94bb825
-  specs:
-    postfix (1.2.0)
 
 GIT
   remote: https://github.com/opscode-cookbooks/python
