@@ -1,27 +1,25 @@
 {
-  "version": "0.0.1",
-  "suggestions": {
-  },
-  "maintainer": "Chris Fordham",
   "providing": {
+  },
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "replacing": {
+  },
+  "conflicting": {
+  },
+  "suggestions": {
   },
   "platforms": {
   },
-  "maintainer_email": "chris@xhost.com.au",
-  "name": "ruby",
   "groupings": {
   },
-  "replacing": {
-  },
-  "license": "Apache 2.0",
+  "description": "Installs/Configures ruby",
   "recipes": {
     "ruby::default": "Installs Ruby."
   },
-  "description": "Installs/Configures ruby",
-  "conflicting": {
-  },
   "recommendations": {
   },
+  "maintainer_email": "chris@xhost.com.au",
+  "maintainer": "Chris Fordham",
   "attributes": {
     "ruby/install_source": {
       "description": "The install source for Ruby: none, ruby1.9.1, ruby1.9.3 or package (default: package).",
@@ -34,13 +32,15 @@
         "ruby1.9.3",
         "none"
       ],
-      "display_name": "Ruby Install Source",
-      "required": "required",
+      "type": "string",
       "calculated": false,
-      "type": "string"
+      "display_name": "Ruby Install Source",
+      "required": "required"
     }
   },
+  "name": "ruby",
+  "version": "0.0.1",
   "dependencies": {
   },
-  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n"
+  "license": "Apache 2.0"
 }

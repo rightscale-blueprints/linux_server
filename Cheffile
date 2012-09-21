@@ -57,6 +57,10 @@ cookbook 'python',
 #  :git => 'https://github.com/coderanger/chef-collectd',
 #  :ref => 'master'
 
+cookbook 'collectd',
+  :git => 'https://github.com/flaccid/chef-collectd',
+  :ref => 'master'
+
 cookbook 'collectd_plugins',
   :git => 'https://github.com/coderanger/chef-collectd_plugins',
   :ref => 'master'

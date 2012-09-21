@@ -5,19 +5,20 @@ SITE
     yum (0.8.0)
 
 GIT
-  remote: https://github.com/coderanger/chef-collectd
-  ref: master
-  sha: 8073564ae6703800dacc19189d87ad7c0c5b77aa
-  specs:
-    collectd (1.0.0)
-
-GIT
   remote: https://github.com/coderanger/chef-collectd_plugins
   ref: master
   sha: d8e264da9ad982dc75978e48c14a9323db553378
   specs:
     collectd_plugins (1.0.0)
       collectd (>= 0.0.0)
+
+GIT
+  remote: https://github.com/flaccid/chef-collectd
+  ref: master
+  sha: 5d951bbe4e046c0cc4b175e9785ffa784794e130
+  specs:
+    collectd (1.0.0)
+      apache2 (>= 0.0.0)
 
 GIT
   remote: https://github.com/flaccid/cookbooks
@@ -31,7 +32,7 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rightscale
   ref: master
-  sha: 910a195aa24c617ecb3b2c11167dec7d1ad03b72
+  sha: a38843edbf29fddbdc33a8c59675c51e12920386
   specs:
     rightscale (0.0.1)
       collectd (>= 0.0.0)
@@ -65,7 +66,7 @@ GIT
 GIT
   remote: https://github.com/flaccid/postfix
   ref: master
-  sha: 1ad44cc13cab5fc081cbf387112211127c084f6a
+  sha: 6729a86466a27983fc52807f6edddd88a70cf41c
   specs:
     postfix (1.2.0)
 
@@ -108,6 +109,7 @@ GIT
 
 DEPENDENCIES
   apache2 (>= 0)
+  collectd (>= 0)
   collectd_plugins (>= 0)
   cron (>= 0)
   ntp (>= 0)
