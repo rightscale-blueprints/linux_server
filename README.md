@@ -142,7 +142,11 @@ For more information on using Chef Solo, see http://wiki.opscode.com/display/che
 
 ##Updating cookbooks
 
-To refresh the cookbooks in `cookbooks/` per the `Cheffile`, run the following:
+To update a cookbook (example, postfix):
+	
+	librarian-chef update postfix
+
+To refresh all the cookbooks in `cookbooks/` per the `Cheffile`, run the following:
 
 	librarian-chef install
 	
