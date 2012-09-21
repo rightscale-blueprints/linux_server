@@ -1,3 +1,11 @@
 {
-  "run_list": [ "recipe[system]", "recipe[rightscale]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[python]", "recipe[ruby]", "recipe[rubygems]", "recipe[rubygems::install_gems]" ]
+  "authorization": {
+    "sudo": {
+      "groups": [ "vagrant" ],
+      "users": [ "vagrant" ],
+      "passwordless":"true",
+      "include_sudoers_d":"true"
+    }
+  },
+  "run_list": [ "recipe[system]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[python]", "recipe[ruby]", "recipe[rubygems]" ]
 }
