@@ -32,7 +32,7 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rightscale
   ref: master
-  sha: 910a195aa24c617ecb3b2c11167dec7d1ad03b72
+  sha: 76f9b6f99b0dab9e88809452fb624de67b6a5a99
   specs:
     rightscale (0.0.1)
       collectd (>= 0.0.0)
@@ -58,7 +58,7 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/system
   ref: master
-  sha: 6db799006e62c6d5bc6c689fbaa4df3c2e4a6cfc
+  sha: 76f9b6f99b0dab9e88809452fb624de67b6a5a99
   specs:
     system (0.0.1)
       cron (>= 0.0.0)
@@ -66,9 +66,9 @@ GIT
 GIT
   remote: https://github.com/opscode-cookbooks/apache2
   ref: master
-  sha: 440912c13a039a3cc978c97f1a361e8c1129eff6
+  sha: 06b023af805df80b6a58d2f0a01aa07f129aac7e
   specs:
-    apache2 (1.1.13)
+    apache2 (1.3.0)
 
 GIT
   remote: https://github.com/opscode-cookbooks/cron
@@ -87,9 +87,9 @@ GIT
 GIT
   remote: https://github.com/opscode-cookbooks/postfix
   ref: master
-  sha: e2a1a3079a4f7839ee8b85d4e5523eaaf94bb825
+  sha: 02b9f246e128ba70304bcdb586949690feb24918
   specs:
-    postfix (1.2.0)
+    postfix (2.0.1)
 
 GIT
   remote: https://github.com/opscode-cookbooks/python

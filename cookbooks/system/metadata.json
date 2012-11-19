@@ -145,7 +145,8 @@
   "recipes": {
     "system::default": "Set the system hostname and timezone.",
     "system::timezone": "Sets the system timezone.",
-    "system::hostname": "Sets the system hostname."
+    "system::hostname": "Sets the system hostname.",
+    "system::upgrade_packages": "Upgrades the system's installed packages."
   },
   "version": "0.0.1"
 }

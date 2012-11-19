@@ -16,6 +16,8 @@ Requirements
 * RHEL/CentOS/Scientific 5.7+, 6.2+
 * Amazon Linux (as of AMIs created after 4/9/2012)
 
+May work on other platforms with or without modification.
+
 Attributes
 ==========
 
@@ -57,6 +59,17 @@ See `attributes/default.rb` for default values.
 * `node['postfix']['aliases']` - hash of aliases to create with
   `recipe[postfix::aliases]`, see below under __Recipes__ for more
   information.
+* `node['postfix']['use_procmail']` - set to true if nodes should use
+  procmail as the delivery agent (mailbox_command).
+* `node['postfix']['milter_default_action']` - corresponds to the
+  `milter_default_action` option in `/etc/postfix/main.cf`.
+* `node['postfix']['milter_protocol']` - corresponds to the
+  `milter_protocol` option in `/etc/postfix/main.cf`.
+* `node['postfix']['smtpd_milters']` - corresponds to the
+  `smtpd_milters` option in `/etc/postfix/main.cf`.
+* `node['postfix']['non_smtpd_milters']` - corresponds to the
+  `non_smtpd_milters` option in `/etc/postfix/main.cf`.
+* `node['postfix']['inet_interfaces']` - interfaces to listen to, all or loopback-only
 
 Recipes
 =======
@@ -110,6 +123,9 @@ template to the `templates/default` or to the appropriate
 platform+version directory per the File Specificity rules for
 templates. Then specify a hash of aliases for the
 `node['postfix']['aliases']` attribute.
+Arrays are supported as alias values, since postfix supports
+comma separated values per alias, simply specify your alias
+as an array to use this handy feature.
 
 http://wiki.opscode.com/display/chef/Templates#Templates-TemplateLocationSpecificity
 
