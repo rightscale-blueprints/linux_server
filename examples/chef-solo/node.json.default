@@ -1,0 +1,3 @@
+{
+  "run_list": [ "recipe[system]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[python]", "recipe[ruby]", "recipe[rubygems]", "recipe[rubygems::install_gems]", "recipe[system::upgrade_packages]" ]
+}

@@ -1,0 +1,10 @@
+{
+  "system": {
+    "short_hostname":"linux",
+    "domain_name":"localdomain",
+    "static_hosts": {
+      "10.0.2.69":"foobar"
+    }
+  },
+  "run_list": [ "recipe[system::hostname]" ]
+}
