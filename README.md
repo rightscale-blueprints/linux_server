@@ -142,9 +142,13 @@ For more information on using Chef Solo, see http://wiki.opscode.com/display/che
 
 ##Updating cookbooks
 
-To update a cookbook (example, postfix):
+Set this environment variable to strip .git from each cookbook checkout:
+
+	export LIBRARIAN_CHEF_INSTALL__STRIP_DOT_GIT=1
+
+To update a cookbook (example, postgresql):
 	
-	librarian-chef update postfix
+	librarian-chef update rightscale
 
 To refresh all the cookbooks in `cookbooks/` per the `Cheffile`, run the following:
 
