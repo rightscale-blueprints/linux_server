@@ -35,7 +35,8 @@ template "/etc/hosts" do
   source "hosts.erb"
   variables(
     :node_ip => node_ip,
-    :hosts_list => hosts_list
+    :hosts_list => hosts_list,
+    :static_hosts => new_resource.static_hosts
     )
   mode 0744
 end
@@ -105,10 +106,18 @@ script "set_node_hostname_tag" do
   EOH
 end
 
-# reload ohai hostname plugin for subsequent recipes in the run_list
-ohai "reload_hostname_info_from_ohai" do
-  plugin "hostname"
-end
+# reload ohai hostname plugin for subsequent recipes in the run_list, or not (http://tickets.opscode.com/browse/OHAI-389?focusedCommentId=26255&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-26255)
+#ohai "reload_hostname_info_from_ohai" do
+#  plugin "hostname"
+#end
+
+# manually update node & automatic attributes
+node.automatic_attrs['hostname'] = `hostname -f`.strip
+node.automatic_attrs['fqdn'] = `hostname -f`.strip
+node['fqdn'] = `hostname -f`.strip
+node['hostname'] = `hostname -f`.strip
+
+#node.save
 
 # Show the new host/node information (after ohai reload from provider)
 ruby_block "show_host_info" do

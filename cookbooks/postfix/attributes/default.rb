@@ -15,14 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-default['postfix']['append_dot_mydomain'] = "yes"
 default['postfix']['mail_type']  = "client"
 default['postfix']['myhostname'] = fqdn
 default['postfix']['mydomain']   = domain
 default['postfix']['myorigin']   = "$myhostname"
 default['postfix']['relayhost']  = ""
 default['postfix']['mail_relay_networks']        = "127.0.0.0/8"
-default['postfix']['inet_interfaces']            = "loopback-only"
 default['postfix']['relayhost_role']             = "relayhost"
 default['postfix']['multi_environment_relay'] = false
 
@@ -34,7 +32,5 @@ default['postfix']['smtp_tls_cafile'] = "/etc/postfix/cacert.pem"
 default['postfix']['smtp_use_tls']    = "yes"
 default['postfix']['smtp_sasl_user_name'] = ""
 default['postfix']['smtp_sasl_passwd']    = ""
-
-default['postfix']['use_procmail'] = false
 
 default['postfix']['aliases'] = {}

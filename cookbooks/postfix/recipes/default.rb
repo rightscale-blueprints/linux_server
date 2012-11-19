@@ -22,13 +22,6 @@ package "postfix" do
   action :install
 end
 
-if node['postfix']['use_procmail'] then
-  package "procmail" do 
-    action :install
-  end
-end
-
-
 service "postfix" do
   supports :status => true, :restart => true, :reload => true
   action :enable

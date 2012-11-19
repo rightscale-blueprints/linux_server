@@ -1,42 +1,42 @@
 {
-  "replacing": {
-  },
-  "conflicting": {
-  },
-  "suggestions": {
-  },
-  "recommendations": {
-  },
-  "groupings": {
-  },
-  "providing": {
+  "name": "python",
+  "description": "Installs Python, pip and virtualenv. Includes LWRPs for managing Python packages with `pip` and `virtualenv` isolated Python environments.",
+  "long_description": "",
+  "maintainer": "Opscode, Inc.",
+  "maintainer_email": "cookbooks@opscode.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "debian": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "freebsd": ">= 0.0.0"
   },
   "dependencies": {
     "build-essential": ">= 0.0.0",
     "yum": ">= 0.0.0"
   },
-  "maintainer": "Opscode, Inc.",
-  "name": "python",
-  "license": "Apache 2.0",
-  "version": "1.0.8",
-  "recipes": {
-    "python::package": "Installs python using packages.",
-    "python::virtualenv": "Installs virtualenv using the python_pip resource.",
-    "python::source": "Installs python from source.",
-    "python": "Installs python, pip, and virtualenv",
-    "python::pip": "Installs pip from source."
+  "recommendations": {
   },
-  "maintainer_email": "cookbooks@opscode.com",
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
   "attributes": {
   },
-  "long_description": "",
-  "platforms": {
-    "freebsd": ">= 0.0.0",
-    "fedora": ">= 0.0.0",
-    "redhat": ">= 0.0.0",
-    "ubuntu": ">= 0.0.0",
-    "centos": ">= 0.0.0",
-    "debian": ">= 0.0.0"
+  "groupings": {
   },
-  "description": "Installs Python, pip and virtualenv. Includes LWRPs for managing Python packages with `pip` and `virtualenv` isolated Python environments."
+  "recipes": {
+    "python": "Installs python, pip, and virtualenv",
+    "python::package": "Installs python using packages.",
+    "python::source": "Installs python from source.",
+    "python::pip": "Installs pip from source.",
+    "python::virtualenv": "Installs virtualenv using the python_pip resource."
+  },
+  "version": "1.0.8"
 }

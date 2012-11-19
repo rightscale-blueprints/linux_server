@@ -45,7 +45,7 @@ cookbook 'sudo',
   :ref => 'master'
 
 cookbook 'postfix',
-  :git => 'https://github.com/flaccid/postfix',
+  :git => 'https://github.com/opscode-cookbooks/postfix',
   :ref => 'master'
 
 cookbook 'python',
@@ -53,13 +53,12 @@ cookbook 'python',
   :ref => 'master'
 
 # currently using un-pushed flaccid fork
-#cookbook 'collectd',
-#  :git => 'https://github.com/coderanger/chef-collectd',
-#  :ref => 'master'
-
 cookbook 'collectd',
   :git => 'https://github.com/flaccid/chef-collectd',
   :ref => 'master'
+#cookbook 'collectd',
+#  :git => 'https://github.com/coderanger/chef-collectd',
+#  :ref => 'master'
 
 cookbook 'collectd_plugins',
   :git => 'https://github.com/coderanger/chef-collectd_plugins',
