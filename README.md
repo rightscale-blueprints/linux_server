@@ -4,7 +4,7 @@ A RightScale Blueprint for a Linux Server.
 
 #Requirements
 
-* Chef 0.10.10 or higher (earlier versions may work with some cookbooks/recipes)
+* Chef 0.10.10 < 0.11.0 (earlier versions may work with some cookbooks/recipes)
 * A Linux host
 
 #Usage
