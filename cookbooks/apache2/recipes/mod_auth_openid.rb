@@ -18,8 +18,8 @@
 #
 
 openid_dev_pkgs = value_for_platform_family(
-  ["debian"] => %w{g++ apache2-prefork-dev libopkele-dev libopkele3},
-  ["rhel","fedora"] => %w{gcc-c++ httpd-devel curl-devel libtidy libtidy-devel sqlite-devel pcre-devel openssl-devel make},
+  ["debian"] => %w{make g++ apache2-prefork-dev libopkele-dev libopkele3},
+  ["rhel", "fedora"] => %w{gcc-c++ httpd-devel curl-devel libtidy libtidy-devel sqlite-devel pcre-devel openssl-devel make},
   "arch" => ["libopkele"],
   "freebsd" => %w{libopkele pcre sqlite3}
 )
@@ -51,6 +51,7 @@ when "rhel", "fedora"
   remote_file "#{Chef::Config['file_cache_path']}/libopkele-2.0.4.tar.gz" do
     source "http://kin.klever.net/dist/libopkele-2.0.4.tar.gz"
     mode 00644
+    checksum "57a5bc753b7e80c5ece1e5968b2051b0ce7ed9ce4329d17122c61575a9ea7648"
   end
 
   bash "install libopkele" do
@@ -62,29 +63,36 @@ when "rhel", "fedora"
     cd libopkele-2.0.4 && ./configure --prefix=/usr --libdir=#{syslibdir}
     #{make_cmd} && #{make_cmd} install
     EOH
-    not_if { File.exists?("#{syslibdir}/libopkele.a") }
+    creates "#{syslibdir}/libopkele.a"
   end
 end
 
-_checksum = node['apache']['mod_auth_openid']['checksum']
-version = node['apache']['mod_auth_openid']['version']
+version = node['apache']['mod_auth_openid']['ref']
 configure_flags = node['apache']['mod_auth_openid']['configure_flags']
 
 remote_file "#{Chef::Config['file_cache_path']}/mod_auth_openid-#{version}.tar.gz" do
-  source "http://butterfat.net/releases/mod_auth_openid/mod_auth_openid-#{version}.tar.gz"
+  source node['apache']['mod_auth_openid']['source_url']
   mode 00644
-  checksum _checksum
+  action :create_if_missing
+end
+
+file "mod_auth_openid_dblocation" do
+  path node['apache']['mod_auth_openid']['dblocation']
+  action :nothing
 end
 
 bash "install mod_auth_openid" do
   cwd Chef::Config['file_cache_path']
   code <<-EOH
   tar zxvf mod_auth_openid-#{version}.tar.gz
-  cd mod_auth_openid-#{version} && ./configure #{configure_flags.join(' ')}
+  cd mod_auth_openid-#{version} && ./autogen.sh
+  ./configure #{configure_flags.join(' ')}
   perl -pi -e "s/-i -a -n 'authopenid'/-i -n 'authopenid'/g" Makefile
   #{make_cmd} && #{make_cmd} install
   EOH
-  not_if { ::File.exists?("#{node['apache']['libexecdir']}/mod_auth_openid.so") }
+  creates "#{node['apache']['libexecdir']}/mod_auth_openid.so"
+  notifies :delete, "file[mod_auth_openid_dblocation]", :immediately
+  notifies :restart, "service[apache2]"
 end
 
 directory node['apache']['mod_auth_openid']['cache_dir'] do

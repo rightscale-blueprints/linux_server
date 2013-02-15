@@ -1,3 +1,47 @@
+## v1.5.0:
+
+**NOTE** The `mod_auth_openid` attributes are changed. The upstream
+  maintainer deprecated the older release versions, and the source
+  repository has releases available at specific SHA1SUM references.
+  The new attribute, `node['apache']['mod_auth_openid']['ref']` is
+  used to set this.
+
+* [COOK-2198] - `apache::mod_auth_openid` compiles from source, but
+  does not install make on debian/ubuntu
+* [COOK-2224] - version conflict between cucumber and other gems
+* [COOK-2248] - `apache2::mod_php5` uses `not_if` "which php" without
+  ensuring package 'which' is installed
+* [COOK-2269] - Set allow list for mod_status incase external monitor scripts need
+* [COOK-2276] - cookbook apache2 documentation regarding listening
+  ports doesn't match default attributes
+* [COOK-2296] - `mod_auth_openid` doesn't have tags/releases for the
+  version I need for features and fixes
+* [COOK-2323] - Add Oracle linux support
+
+## v1.4.2:
+
+* [COOK-1721] - fix logrotate recipe
+
+## v1.4.0:
+
+* [COOK-1456] - iptables enhancements
+* [COOK-1473] - apache2 does not disable default site when setting
+  "`default_site_enabled`" back to false
+* [COOK-1824] - the apache2 cookbook needs to specify which binary is
+  used on rhel platform
+* [COOK-1916] - Download location wrong for apache2 `mod_auth_openid`
+  >= 0.7
+* [COOK-1917] - Improve `mod_auth_openid` recipe to handle module
+  upgrade more gracefully
+* [COOK-2029] - apache2 restarts on every run on RHEL and friends,
+  generate-module-list on every run.
+* [COOK-2036] - apache2: Cookbook style
+
+## v1.3.2:
+
+* [COOK-1804] - fix `web_app` definition parameter so site can be
+  disabled.
+
 ## v1.3.0:
 
 * [COOK-1738] - Better configuration for `mod_include` and some
