@@ -1,123 +1,32 @@
 {
-  "version": "0.0.1",
-  "recipes": {
-    "rightscale::default": "Sets up RightScale Monitoring, installs RightScale Tools and adds RightScale Server tags.",
-    "rightscale::tools": "Installs RightScale Tools (RubyGem).",
-    "rightscale::server_tags": "Sets RightScale Server tags.",
-    "rightscale::monitoring": "Sets up and configures RightScale Monitoring (collectd)."
+  "name": "rightscale",
+  "description": "Installs/Configures a Rightscale Server node.",
+  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
+  "maintainer": "Chris Fordham",
+  "maintainer_email": "chris@xhost.com.au",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "collectd": ">= 0.0.0",
+    "rest_connection": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
   },
   "attributes": {
-    "collectd/interval": {
-      "recipes": [
-        "collectd::default"
-      ],
-      "required": "optional",
-      "type": "string",
-      "description": "The collectd interval setting value.",
-      "choice": [
-
-      ],
-      "display_name": "collectd Polling Interval",
-      "calculated": false,
-      "default": "20"
-    },
-    "collectd/collectd_web/path": {
-      "recipes": [
-        "collectd::collectd_web"
-      ],
-      "required": "optional",
-      "type": "string",
-      "description": "The collectd_web install path.",
-      "choice": [
-
-      ],
-      "display_name": "collectd_web path",
-      "calculated": false,
-      "default": "/srv/collectd_web"
-    },
-    "collectd/fqdn_lookup": {
-      "recipes": [
-        "collectd::default",
-        "rightscale::default"
-      ],
-      "required": "optional",
-      "type": "string",
-      "description": "The collectd FQDNLookup setting value.",
-      "choice": [
-        "true",
-        "false"
-      ],
-      "display_name": "collectd FQDNLookup",
-      "calculated": false,
-      "default": "true"
-    },
-    "collectd/servers": {
-      "recipes": [
-        "rightscale::default"
-      ],
-      "required": "required",
-      "type": "string",
-      "description": "The collectd servers to send to as a client.",
-      "choice": [
-
-      ],
-      "display_name": "collectd Servers",
-      "calculated": false
-    },
-    "collectd/read_threads": {
-      "recipes": [
-        "collectd::default"
-      ],
-      "required": "optional",
-      "type": "string",
-      "description": "The collectd read threads setting value.",
-      "choice": [
-
-      ],
-      "display_name": "collectd Read Threads",
-      "calculated": false,
-      "default": "5"
-    },
-    "collectd/collectd_web/hostname": {
-      "recipes": [
-        "collectd::collectd_web"
-      ],
-      "required": "optional",
-      "type": "string",
-      "description": "The collectd_web hostname.",
-      "choice": [
-
-      ],
-      "display_name": "collectd_web hostname",
-      "calculated": false,
-      "default": "collectd"
-    },
-    "collectd/hostname": {
-      "recipes": [
-        "collectd::default",
-        "rightscale::default"
-      ],
-      "required": "optional",
-      "type": "string",
-      "description": "The collectd Hostname setting value.",
-      "choice": [
-
-      ],
-      "display_name": "collectd Hostname",
-      "calculated": false
-    },
     "rightscale/monitoring/collectd_plugins": {
-      "recipes": [
-        "rightscale::monitoring"
-      ],
+      "display_name": "RightScale Monitoring Plugins",
+      "description": "An array of collectd plugins to enable.",
       "required": "recommended",
       "type": "array",
-      "description": "An array of collectd plugins to enable.",
-      "choice": [
-
-      ],
-      "display_name": "RightScale Monitoring Plugins",
-      "calculated": false,
       "default": [
         "cpu",
         "df",
@@ -127,30 +36,122 @@
         "processes",
         "swap",
         "users"
-      ]
+      ],
+      "recipes": [
+        "rightscale::monitoring"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false
+    },
+    "collectd/interval": {
+      "display_name": "collectd Polling Interval",
+      "description": "The collectd interval setting value.",
+      "required": "optional",
+      "default": "20",
+      "recipes": [
+        "collectd::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "collectd/read_threads": {
+      "display_name": "collectd Read Threads",
+      "description": "The collectd read threads setting value.",
+      "required": "optional",
+      "default": "5",
+      "recipes": [
+        "collectd::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "collectd/servers": {
+      "display_name": "collectd Servers",
+      "description": "The collectd servers to send to as a client.",
+      "required": "required",
+      "type": "string",
+      "recipes": [
+        "rightscale::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false
+    },
+    "collectd/hostname": {
+      "display_name": "collectd Hostname",
+      "description": "The collectd Hostname setting value.",
+      "required": "optional",
+      "recipes": [
+        "collectd::default",
+        "rightscale::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "collectd/fqdn_lookup": {
+      "display_name": "collectd FQDNLookup",
+      "description": "The collectd FQDNLookup setting value.",
+      "required": "optional",
+      "recipes": [
+        "collectd::default",
+        "rightscale::default"
+      ],
+      "choice": [
+        "true",
+        "false"
+      ],
+      "default": "true",
+      "calculated": false,
+      "type": "string"
+    },
+    "collectd/collectd_web/path": {
+      "display_name": "collectd_web path",
+      "description": "The collectd_web install path.",
+      "required": "optional",
+      "default": "/srv/collectd_web",
+      "recipes": [
+        "collectd::collectd_web"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "collectd/collectd_web/hostname": {
+      "display_name": "collectd_web hostname",
+      "description": "The collectd_web hostname.",
+      "required": "optional",
+      "default": "collectd",
+      "recipes": [
+        "collectd::collectd_web"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
     }
   },
-  "suggestions": {
-  },
-  "license": "Apache 2.0",
-  "recommendations": {
-  },
-  "maintainer_email": "chris@xhost.com.au",
-  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
-  "providing": {
-  },
-  "dependencies": {
-    "collectd": ">= 0.0.0"
-  },
-  "description": "Installs/Configures a Rightscale Server node.",
   "groupings": {
   },
-  "replacing": {
+  "recipes": {
+    "rightscale::default": "Sets up RightScale Monitoring, installs RightScale Tools and adds RightScale Server tags.",
+    "rightscale::tools": "Installs RightScale Tools (RubyGem).",
+    "rightscale::monitoring": "Sets up and configures RightScale Monitoring (collectd).",
+    "rightscale::server_tags": "Sets RightScale Server tags."
   },
-  "platforms": {
-  },
-  "maintainer": "Chris Fordham",
-  "name": "rightscale",
-  "conflicting": {
-  }
+  "version": "0.0.1"
 }

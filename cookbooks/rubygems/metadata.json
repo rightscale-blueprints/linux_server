@@ -1,62 +1,62 @@
 {
-  "recipes": {
-    "rubygems::update_gems": "Updates installed RubyGems.",
-    "rubygems::default": "Installs RubyGems",
-    "rubygems::install_gems": "Installs a list of RubyGems into system."
-  },
-  "recommendations": {
-  },
-  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
   "name": "rubygems",
-  "replacing": {
+  "description": "Installs/Configures rubygems",
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "maintainer": "Chris Fordham",
+  "maintainer_email": "chris@xhost.com.au",
+  "license": "Apache 2.0",
+  "platforms": {
   },
   "dependencies": {
     "ruby": ">= 0.0.0"
   },
-  "groupings": {
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
   },
   "attributes": {
     "ruby/install_source": {
-      "recipes": [
-        "rubygems::default"
-      ],
       "display_name": "Ruby Install Source",
+      "description": "The install source for Ruby: none, ruby1.9.1, ruby1.9.3 or package (default: package).",
       "choice": [
         "package",
         "ruby1.9.1",
         "ruby1.9.3",
         "none"
       ],
-      "type": "string",
+      "recipes": [
+        "rubygems::default"
+      ],
       "calculated": false,
-      "required": "optional",
-      "description": "The install source for Ruby: none, ruby1.9.1, ruby1.9.3 or package (default: package)."
+      "type": "string",
+      "required": "optional"
     },
     "rubygems/gems_install": {
+      "display_name": "RubyGems Install",
+      "description": "An array or string of RubyGems to install system wide.",
       "recipes": [
         "rubygems::install_gems"
       ],
-      "display_name": "RubyGems Install",
       "choice": [
 
       ],
-      "type": "string",
       "calculated": false,
-      "required": "optional",
-      "description": "An array or string of RubyGems to install system wide."
+      "type": "string",
+      "required": "optional"
     }
   },
-  "maintainer_email": "chris@xhost.com.au",
-  "maintainer": "Chris Fordham",
-  "version": "0.0.1",
-  "suggestions": {
+  "groupings": {
   },
-  "platforms": {
+  "recipes": {
+    "rubygems::default": "Installs RubyGems",
+    "rubygems::install_gems": "Installs a list of RubyGems into system.",
+    "rubygems::update_gems": "Updates installed RubyGems."
   },
-  "license": "Apache 2.0",
-  "conflicting": {
-  },
-  "description": "Installs/Configures rubygems",
-  "providing": {
-  }
+  "version": "0.0.1"
 }

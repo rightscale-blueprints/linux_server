@@ -18,7 +18,22 @@
 #
 
 default[:collectd][:base_dir] = "/var/lib/collectd"
-default[:collectd][:plugin_dir] = "/usr/lib/collectd"
+
+case node['platform']
+when "debian","ubuntu"
+  default[:collectd][:plugin_dir] = "/usr/lib/collectd"
+  default[:collectd][:config_dir] = "/etc/collectd"
+  default[:collectd][:config_file] = "/etc/collectd/collectd.conf"
+when "redhat","centos","scientific","fedora","suse"
+  default[:collectd][:plugin_dir] = "/usr/lib64/collectd"
+  default[:collectd][:config_dir] = "/etc/collectd.d"
+  default[:collectd][:config_file] = "/etc/collectd.conf"
+else
+  default[:collectd][:plugin_dir] = "/usr/lib/collectd"
+  default[:collectd][:config_dir] = "/etc/collectd.d"
+  default[:collectd][:config_file] = "/etc/collectd.conf"
+end
+
 default[:collectd][:types_db] = ["/usr/share/collectd/types.db"]
 default[:collectd][:interval] = 10
 default[:collectd][:read_threads] = 5
