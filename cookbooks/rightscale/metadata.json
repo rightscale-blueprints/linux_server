@@ -22,6 +22,19 @@
   "replacing": {
   },
   "attributes": {
+    "rightscale/tags/add": {
+      "display_name": "RightScale Tags Add",
+      "description": "An array of RightScale tags to add to the node.",
+      "required": "optional",
+      "type": "array",
+      "recipes": [
+        "rightscale::add_tags"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false
+    },
     "rightscale/monitoring/collectd_plugins": {
       "display_name": "RightScale Monitoring Plugins",
       "description": "An array of collectd plugins to enable.",
@@ -151,7 +164,8 @@
     "rightscale::default": "Sets up RightScale Monitoring, installs RightScale Tools and adds RightScale Server tags.",
     "rightscale::tools": "Installs RightScale Tools (RubyGem).",
     "rightscale::monitoring": "Sets up and configures RightScale Monitoring (collectd).",
-    "rightscale::server_tags": "Sets RightScale Server tags."
+    "rightscale::server_tags": "Sets RightScale Server tags.",
+    "rightscale::add_tags": "Adds tags to the node."
   },
   "version": "0.0.1"
 }
