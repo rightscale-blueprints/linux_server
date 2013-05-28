@@ -18,6 +18,11 @@ cookbook 'resolver',
    :path => 'cookbooks/resolver',
    :ref => 'master'
 
+cookbook 'rest_connection',
+   :git => 'https://github.com/flaccid/cookbooks',
+   :path => 'cookbooks/rest_connection',
+   :ref => 'master'
+
 cookbook 'ruby',
    :git => 'https://github.com/flaccid/cookbooks',
    :path => 'cookbooks/ruby',
