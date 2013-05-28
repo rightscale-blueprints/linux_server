@@ -35,6 +35,19 @@
       ],
       "calculated": false
     },
+    "rightscale/tags/remove": {
+      "display_name": "RightScale Tags Remove",
+      "description": "An array of RightScale tags to remove from the node.",
+      "required": "optional",
+      "type": "array",
+      "recipes": [
+        "rightscale::remove_tags"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false
+    },
     "rightscale/monitoring/collectd_plugins": {
       "display_name": "RightScale Monitoring Plugins",
       "description": "An array of collectd plugins to enable.",
@@ -165,7 +178,9 @@
     "rightscale::tools": "Installs RightScale Tools (RubyGem).",
     "rightscale::monitoring": "Sets up and configures RightScale Monitoring (collectd).",
     "rightscale::server_tags": "Sets RightScale Server tags.",
-    "rightscale::add_tags": "Adds tags to the node."
+    "rightscale::add_tags": "Adds tags to the node.",
+    "rightscale::remove_tags": "Remove tags on the node.",
+    "rightscale::list_tags": "Lists tags on the node."
   },
   "version": "0.0.1"
 }
