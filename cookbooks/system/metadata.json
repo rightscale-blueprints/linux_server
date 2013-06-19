@@ -1,36 +1,53 @@
 {
-  "name": "system",
-  "description": "Installs/Configures system elements such as the hostname and timezone.",
-  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
-  "maintainer": "Chris Fordham",
-  "maintainer_email": "chris@xhost.com.au",
-  "license": "Apache 2.0",
-  "platforms": {
-    "ubuntu": ">= 0.0.0",
-    "debian": ">= 0.0.0",
-    "centos": ">= 0.0.0",
-    "fedora": ">= 0.0.0",
-    "redhat": ">= 0.0.0",
-    "archlinux": ">= 0.0.0"
-  },
-  "dependencies": {
-    "cron": ">= 0.0.0"
-  },
-  "recommendations": {
+  "providing": {
   },
   "suggestions": {
   },
-  "conflicting": {
+  "license": "Apache 2.0",
+  "maintainer": "Chris Fordham",
+  "name": "system",
+  "platforms": {
+    "centos": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "archlinux": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "redhat": ">= 0.0.0"
   },
-  "providing": {
-  },
-  "replacing": {
-  },
+  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
+  "version": "0.0.1",
   "attributes": {
-    "system/timezone": {
-      "display_name": "Timezone",
-      "description": "Sets the system time to the timezone of the specified input, which must be a valid zoneinfo/tz database entry.  If the input is 'unset' the timezone will use the 'localtime' that's defined in your RightScale account under Settings -> User -> Preferences tab.  You can find a list of valid examples from the timezone pulldown bar in the Preferences tab. The server will not be updated for daylight savings time.  Ex: US/Pacific, US/Eastern",
+    "system/domain_name": {
+      "calculated": false,
+      "choice": [
+
+      ],
+      "display_name": "Domain Name",
+      "required": "recommended",
+      "description": "The domain name that you would like this node to have, e.g. domain.suf. Note: Only set a valid domain name to satisfy the resolution of a FQDN; use ignore:ignore for no domain name.",
+      "default": "localdomain",
+      "recipes": [
+        "system::hostname",
+        "system::default"
+      ],
+      "type": "string"
+    },
+    "system/upgrade_packages": {
+      "calculated": false,
+      "choice": [
+
+      ],
+      "display_name": "Upgrade Packages",
       "required": "optional",
+      "description": "Whether or not the system::upgrade_packages recipe will physically update the system's installed packages (in compile time).",
+      "default": "true",
+      "recipes": [
+        "system::upgrade_packages"
+      ],
+      "type": "string"
+    },
+    "system/timezone": {
+      "calculated": false,
       "choice": [
         "Africa/Casablanca",
         "America/Bogota",
@@ -101,52 +118,49 @@
         "UTC",
         "localtime"
       ],
+      "display_name": "Timezone",
+      "required": "optional",
+      "description": "Sets the system time to the timezone of the specified input, which must be a valid zoneinfo/tz database entry.  If the input is 'unset' the timezone will use the 'localtime' that's defined in your RightScale account under Settings -> User -> Preferences tab.  You can find a list of valid examples from the timezone pulldown bar in the Preferences tab. The server will not be updated for daylight savings time.  Ex: US/Pacific, US/Eastern",
       "default": "UTC",
       "recipes": [
         "system::timezone",
         "system::default"
       ],
-      "calculated": false,
       "type": "string"
     },
     "system/short_hostname": {
+      "calculated": false,
+      "choice": [
+
+      ],
       "display_name": "Short Hostname",
-      "description": "The short hostname that you would like this node to have, e.g. kryten",
       "required": "recommended",
+      "description": "The short hostname that you would like this node to have, e.g. kryten",
       "default": "localhost",
       "recipes": [
         "system::hostname",
         "system::default"
       ],
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string"
-    },
-    "system/domain_name": {
-      "display_name": "Domain Name",
-      "description": "The domain name that you would like this node to have, e.g. domain.suf. Note: Only set a valid domain name to satisfy the resolution of a FQDN; use ignore:ignore for no domain name.",
-      "required": "recommended",
-      "default": "localdomain",
-      "recipes": [
-        "system::hostname",
-        "system::default"
-      ],
-      "choice": [
-
-      ],
-      "calculated": false,
       "type": "string"
     }
   },
-  "groupings": {
+  "dependencies": {
+    "cron": ">= 0.0.0"
   },
+  "description": "Installs/Configures system elements such as the hostname and timezone.",
   "recipes": {
-    "system::default": "Set the system hostname and timezone.",
-    "system::timezone": "Sets the system timezone.",
+    "system::upgrade_packages": "Upgrades the system's installed packages.",
     "system::hostname": "Sets the system hostname.",
-    "system::upgrade_packages": "Upgrades the system's installed packages."
+    "system::default": "Set the system hostname and timezone.",
+    "system::timezone": "Sets the system timezone."
   },
-  "version": "0.0.1"
+  "replacing": {
+  },
+  "conflicting": {
+  },
+  "recommendations": {
+  },
+  "maintainer_email": "chris@xhost.com.au",
+  "groupings": {
+  }
 }

@@ -1,3 +1,13 @@
+## v1.2.4:
+
+### Task
+
+- [COOK-3058]: simplify conditionals in cron recipe
+
+## v1.2.2:
+
+* [COOK1829] - `cron_d` LWRPtemplate should imply cron cookbook by default
+
 ## v1.2.0:
 
 * [COOK-938] - don't default to upgrading cron and fix rhel6 package name
