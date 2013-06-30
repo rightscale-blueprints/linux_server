@@ -40,7 +40,7 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rightscale
   ref: master
-  sha: 1690267daded717e0924f14b83bd32f32629f5f6
+  sha: 08612b099c60bff8ad954fb09af59e1d828edfdd
   specs:
     rightscale (0.0.1)
       collectd (>= 0.0.0)
@@ -74,9 +74,9 @@ GIT
 GIT
   remote: https://github.com/opscode-cookbooks/apache2
   ref: master
-  sha: 9eb2252c1582514364d962fdedd70e6ea98436b9
+  sha: 5e4b354d8e0a541e280be01c7edad0e19040ddba
   specs:
-    apache2 (1.6.3)
+    apache2 (1.6.7)
 
 GIT
   remote: https://github.com/opscode-cookbooks/cron
