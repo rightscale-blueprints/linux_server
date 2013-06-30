@@ -1,31 +1,31 @@
 {
-  "long_description": "# DESCRIPTION #\n\nConfigure plugins for the [collectd](http://collectd.org/) monitoring daemon.\n\n# REQUIREMENTS #\n\nThis cookbook has only been tested on Ubuntu 10.04.\n\n# USAGE #\n\nA number of recipes for standard plugins are available:\n\n* `collectd_plugins::rrdtool` - Output to RRD database files.\n* `collectd_plugins::syslog` Log errors to syslog.\n* `collectd_plugins::cpu` - CPU usage.\n* `collectd_plugins::df` - Free space on disks.\n* `collectd_plugins::disk` - Disk I/O operations.\n* `collectd_plugins::interface` - Network I/O operations.\n* `collectd_plugins::memory` - Memory usage.\n* `collectd_plugins::swap` - Swap file usage.\n\nIt is recommended to always enable the first two (rrdtool and syslog), but the others are entirely optional. For convenience, the `collectd_plugins` default recipe will include all of these.\n\n## Redis ##\n\nA plugin to monitor [Redis](http://redis.io/) is included as `collectd_plugins::redis`. This recipe requires that you be using our [redis cookbook](https://github.com/AtariTech/cookbooks/tree/master/redis)\nfor your servers, but can be trivially modified to look for a different recipe or role name.\n\n# LICENSE & AUTHOR #\n\nAuthor:: Noah Kantrowitz (<noah@coderanger.net>)\nCopyright:: 2010, Atari, Inc\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
-  "dependencies": {
-    "collectd": ">= 0.0.0"
-  },
-  "maintainer_email": "noah@coderanger.net",
-  "maintainer": "Noan Kantrowitz",
-  "version": "1.0.0",
-  "replacing": {
-  },
-  "suggestions": {
-  },
-  "recommendations": {
-  },
-  "license": "Apache 2.0",
   "name": "collectd_plugins",
-  "groupings": {
-  },
   "description": "Configure collectd plugins",
-  "conflicting": {
-  },
+  "long_description": "# DESCRIPTION #\n\nConfigure plugins for the [collectd](http://collectd.org/) monitoring daemon.\n\n# REQUIREMENTS #\n\nThis cookbook has only been tested on Ubuntu 10.04.\n\n# USAGE #\n\nA number of recipes for standard plugins are available:\n\n* `collectd_plugins::rrdtool` - Output to RRD database files.\n* `collectd_plugins::syslog` Log errors to syslog.\n* `collectd_plugins::cpu` - CPU usage.\n* `collectd_plugins::df` - Free space on disks.\n* `collectd_plugins::disk` - Disk I/O operations.\n* `collectd_plugins::interface` - Network I/O operations.\n* `collectd_plugins::memory` - Memory usage.\n* `collectd_plugins::swap` - Swap file usage.\n\nIt is recommended to always enable the first two (rrdtool and syslog), but the others are entirely optional. For convenience, the `collectd_plugins` default recipe will include all of these.\n\n## Redis ##\n\nA plugin to monitor [Redis](http://redis.io/) is included as `collectd_plugins::redis`. This recipe requires that you be using our [redis cookbook](https://github.com/AtariTech/cookbooks/tree/master/redis)\nfor your servers, but can be trivially modified to look for a different recipe or role name.\n\n# LICENSE & AUTHOR #\n\nAuthor:: Noah Kantrowitz (<noah@coderanger.net>)\nCopyright:: 2010, Atari, Inc\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "maintainer": "Noan Kantrowitz",
+  "maintainer_email": "noah@coderanger.net",
+  "license": "Apache 2.0",
   "platforms": {
     "ubuntu": ">= 0.0.0"
   },
+  "dependencies": {
+    "collectd": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
   "providing": {
+  },
+  "replacing": {
   },
   "attributes": {
   },
+  "groupings": {
+  },
   "recipes": {
-  }
+  },
+  "version": "1.0.0"
 }
