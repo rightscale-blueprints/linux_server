@@ -1,15 +1,79 @@
 {
-  "groupings": {
+  "replacing": {
   },
-  "providing": {
-  },
+  "maintainer_email": "chris@xhost.com.au",
+  "version": "0.0.1",
+  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
   "attributes": {
-    "rightscale/monitoring/collectd_plugins": {
-      "required": "recommended",
-      "type": "array",
+    "collectd/collectd_web/path": {
+      "choice": [
+
+      ],
+      "default": "/srv/collectd_web",
+      "description": "The collectd_web install path.",
       "calculated": false,
-      "display_name": "RightScale Monitoring Plugins",
-      "description": "An array of collectd plugins to enable.",
+      "recipes": [
+        "collectd::collectd_web"
+      ],
+      "display_name": "collectd_web path",
+      "type": "string",
+      "required": "optional"
+    },
+    "collectd/hostname": {
+      "choice": [
+
+      ],
+      "description": "The collectd Hostname setting value.",
+      "calculated": false,
+      "recipes": [
+        "collectd::default",
+        "rightscale::default"
+      ],
+      "display_name": "collectd Hostname",
+      "type": "string",
+      "required": "optional"
+    },
+    "collectd/interval": {
+      "choice": [
+
+      ],
+      "default": "20",
+      "description": "The collectd interval setting value.",
+      "calculated": false,
+      "recipes": [
+        "collectd::default"
+      ],
+      "display_name": "collectd Polling Interval",
+      "type": "string",
+      "required": "optional"
+    },
+    "rightscale/add_sandbox_to_path": {
+      "choice": [
+
+      ],
+      "description": "Enforces PATH sanity by modify ENV['PATH'].",
+      "calculated": false,
+      "recipes": [
+        "rightscale::enforce_path_sanity"
+      ],
+      "display_name": "RightScale Chef Add Sandbox to PATH",
+      "type": "string",
+      "required": "optional"
+    },
+    "collectd/servers": {
+      "choice": [
+
+      ],
+      "description": "The collectd servers to send to as a client.",
+      "calculated": false,
+      "recipes": [
+        "rightscale::default"
+      ],
+      "display_name": "collectd Servers",
+      "type": "string",
+      "required": "required"
+    },
+    "rightscale/monitoring/collectd_plugins": {
       "choice": [
 
       ],
@@ -23,166 +87,128 @@
         "swap",
         "users"
       ],
+      "description": "An array of collectd plugins to enable.",
+      "calculated": false,
       "recipes": [
         "rightscale::monitoring"
-      ]
-    },
-    "collectd/collectd_web/hostname": {
-      "required": "optional",
-      "type": "string",
-      "calculated": false,
-      "display_name": "collectd_web hostname",
-      "description": "The collectd_web hostname.",
-      "choice": [
-
       ],
-      "default": "collectd",
-      "recipes": [
-        "collectd::collectd_web"
-      ]
+      "display_name": "RightScale Monitoring Plugins",
+      "type": "array",
+      "required": "recommended"
     },
     "rightscale/tags/remove": {
-      "required": "optional",
-      "type": "array",
-      "calculated": false,
-      "display_name": "RightScale Tags Remove",
-      "description": "An array of RightScale tags to remove from the node.",
       "choice": [
 
       ],
+      "description": "An array of RightScale tags to remove from the node.",
+      "calculated": false,
       "recipes": [
         "rightscale::remove_tags"
-      ]
+      ],
+      "display_name": "RightScale Tags Remove",
+      "type": "array",
+      "required": "optional"
     },
-    "collectd/interval": {
-      "required": "optional",
-      "type": "string",
-      "calculated": false,
-      "display_name": "collectd Polling Interval",
-      "description": "The collectd interval setting value.",
+    "rightscale/enforce_path_sanity": {
       "choice": [
 
       ],
-      "default": "20",
-      "recipes": [
-        "collectd::default"
-      ]
-    },
-    "collectd/read_threads": {
-      "required": "optional",
-      "type": "string",
+      "description": "Enforces PATH sanity by modifying ENV['PATH'].",
       "calculated": false,
-      "display_name": "collectd Read Threads",
-      "description": "The collectd read threads setting value.",
-      "choice": [
-
-      ],
-      "default": "5",
       "recipes": [
-        "collectd::default"
-      ]
-    },
-    "collectd/servers": {
-      "required": "required",
+        "rightscale::add_sandbox_to_path"
+      ],
+      "display_name": "RightScale Chef Enforce PATH Sanity",
       "type": "string",
-      "calculated": false,
-      "display_name": "collectd Servers",
-      "description": "The collectd servers to send to as a client.",
-      "choice": [
-
-      ],
-      "recipes": [
-        "rightscale::default"
-      ]
+      "required": "optional"
     },
     "collectd/fqdn_lookup": {
-      "required": "optional",
-      "type": "string",
-      "calculated": false,
-      "display_name": "collectd FQDNLookup",
-      "description": "The collectd FQDNLookup setting value.",
       "choice": [
         "true",
         "false"
       ],
       "default": "true",
+      "description": "The collectd FQDNLookup setting value.",
+      "calculated": false,
       "recipes": [
         "collectd::default",
         "rightscale::default"
-      ]
-    },
-    "collectd/hostname": {
-      "required": "optional",
+      ],
+      "display_name": "collectd FQDNLookup",
       "type": "string",
-      "calculated": false,
-      "display_name": "collectd Hostname",
-      "description": "The collectd Hostname setting value.",
+      "required": "optional"
+    },
+    "collectd/collectd_web/hostname": {
       "choice": [
 
       ],
-      "recipes": [
-        "collectd::default",
-        "rightscale::default"
-      ]
-    },
-    "collectd/collectd_web/path": {
-      "required": "optional",
-      "type": "string",
+      "default": "collectd",
+      "description": "The collectd_web hostname.",
       "calculated": false,
-      "display_name": "collectd_web path",
-      "description": "The collectd_web install path.",
-      "choice": [
-
-      ],
-      "default": "/srv/collectd_web",
       "recipes": [
         "collectd::collectd_web"
-      ]
+      ],
+      "display_name": "collectd_web hostname",
+      "type": "string",
+      "required": "optional"
     },
     "rightscale/tags/add": {
-      "required": "optional",
-      "type": "array",
-      "calculated": false,
-      "display_name": "RightScale Tags Add",
-      "description": "An array of RightScale tags to add to the node.",
       "choice": [
 
       ],
+      "description": "An array of RightScale tags to add to the node.",
+      "calculated": false,
       "recipes": [
         "rightscale::add_tags"
-      ]
+      ],
+      "display_name": "RightScale Tags Add",
+      "type": "array",
+      "required": "optional"
+    },
+    "collectd/read_threads": {
+      "choice": [
+
+      ],
+      "default": "5",
+      "description": "The collectd read threads setting value.",
+      "calculated": false,
+      "recipes": [
+        "collectd::default"
+      ],
+      "display_name": "collectd Read Threads",
+      "type": "string",
+      "required": "optional"
     }
   },
-  "replacing": {
-  },
-  "recommendations": {
-  },
-  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
-  "license": "Apache 2.0",
-  "name": "rightscale",
+  "maintainer": "Chris Fordham",
   "description": "Installs/Configures a Rightscale Server node.",
-  "conflicting": {
+  "name": "rightscale",
+  "groupings": {
   },
   "suggestions": {
   },
+  "recommendations": {
+  },
   "platforms": {
   },
-  "maintainer_email": "chris@xhost.com.au",
+  "recipes": {
+    "rightscale::server_tags": "Sets RightScale Server tags.",
+    "rightscale::tools": "Installs RightScale Tools (RubyGem).",
+    "rightscale::add_sandbox_to_path": "Adds the RightLink sandbox to PATH.",
+    "rightscale::monitoring": "Sets up and configures RightScale Monitoring (collectd).",
+    "rightscale::remove_tags": "Remove tags on the node.",
+    "rightscale::default": "Sets up RightScale Monitoring, installs RightScale Tools and adds RightScale Server tags.",
+    "rightscale::enforce_path_sanity": "Enforces PATH sanity.",
+    "rightscale::add_tags": "Adds tags to the node.",
+    "rightscale::list_tags": "Lists tags on the node."
+  },
+  "providing": {
+  },
+  "conflicting": {
+  },
   "dependencies": {
     "collectd": ">= 0.0.0",
     "rest_connection": ">= 0.0.0"
   },
-  "maintainer": "Chris Fordham",
-  "version": "0.0.1",
-  "recipes": {
-    "rightscale::enforce_path_sanity": "Enforces PATH sanity.",
-    "rightscale::remove_tags": "Remove tags on the node.",
-    "rightscale::tools": "Installs RightScale Tools (RubyGem).",
-    "rightscale::add_sandbox_to_path": "Adds the RightLink sandbox to PATH.",
-    "rightscale::default": "Sets up RightScale Monitoring, installs RightScale Tools and adds RightScale Server tags.",
-    "rightscale::list_tags": "Lists tags on the node.",
-    "rightscale::add_tags": "Adds tags to the node.",
-    "rightscale::monitoring": "Sets up and configures RightScale Monitoring (collectd).",
-    "rightscale::server_tags": "Sets RightScale Server tags."
-  }
+  "license": "Apache 2.0"
 }

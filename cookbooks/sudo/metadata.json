@@ -1,118 +1,118 @@
 {
-  "dependencies": {
-  },
-  "name": "sudo",
-  "recommendations": {
-  },
   "license": "Apache 2.0",
-  "version": "1.1.1",
+  "maintainer_email": "cookbooks@opscode.com",
+  "description": "Installs sudo and configures /etc/sudoers",
+  "maintainer": "Opscode, Inc.",
   "recipes": {
     "sudo": "Installs sudo and configures /etc/sudoers"
   },
-  "platforms": {
-    "debian": ">= 0.0.0",
-    "freebsd": ">= 0.0.0",
-    "fedora": ">= 0.0.0",
-    "redhat": ">= 0.0.0",
-    "ubuntu": ">= 0.0.0",
-    "centos": ">= 0.0.0"
-  },
-  "maintainer_email": "cookbooks@opscode.com",
-  "attributes": {
-    "authorization/sudo/groups": {
-      "display_name": "Sudo Groups",
-      "choice": [
-
-      ],
-      "default": "",
-      "required": "optional",
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "type": "array",
-      "description": "Groups who are allowed sudo ALL"
-    },
-    "authorization/sudo/passwordless": {
-      "display_name": "Passwordless Sudo",
-      "choice": [
-
-      ],
-      "default": "false",
-      "required": "optional",
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "type": "string",
-      "description": ""
-    },
-    "authorization/sudo": {
-      "display_name": "Authorization Sudoers",
-      "choice": [
-
-      ],
-      "required": "optional",
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "type": "hash",
-      "description": "Hash of Authorization/Sudo attributes"
-    },
-    "authorization/sudo/include_sudoers_d": {
-      "display_name": "Include sudoers.d",
-      "choice": [
-
-      ],
-      "default": "false",
-      "required": "optional",
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "type": "string",
-      "description": "Whether to create the sudoers.d includedir"
-    },
-    "authorization/sudo/users": {
-      "display_name": "Sudo Users",
-      "choice": [
-
-      ],
-      "default": "",
-      "required": "optional",
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "type": "array",
-      "description": "Users who are allowed sudo ALL"
-    },
-    "authorization": {
-      "display_name": "Authorization",
-      "choice": [
-
-      ],
-      "required": "optional",
-      "recipes": [
-
-      ],
-      "calculated": false,
-      "type": "hash",
-      "description": "Hash of Authorization attributes"
-    }
-  },
   "replacing": {
   },
-  "suggestions": {
+  "version": "1.1.1",
+  "conflicting": {
+  },
+  "recommendations": {
+  },
+  "dependencies": {
   },
   "groupings": {
   },
+  "attributes": {
+    "authorization/sudo/include_sudoers_d": {
+      "choice": [
+
+      ],
+      "display_name": "Include sudoers.d",
+      "default": "false",
+      "description": "Whether to create the sudoers.d includedir",
+      "recipes": [
+
+      ],
+      "type": "string",
+      "calculated": false,
+      "required": "optional"
+    },
+    "authorization": {
+      "choice": [
+
+      ],
+      "display_name": "Authorization",
+      "description": "Hash of Authorization attributes",
+      "recipes": [
+
+      ],
+      "type": "hash",
+      "calculated": false,
+      "required": "optional"
+    },
+    "authorization/sudo/passwordless": {
+      "choice": [
+
+      ],
+      "display_name": "Passwordless Sudo",
+      "default": "false",
+      "description": "",
+      "recipes": [
+
+      ],
+      "type": "string",
+      "calculated": false,
+      "required": "optional"
+    },
+    "authorization/sudo/groups": {
+      "choice": [
+
+      ],
+      "display_name": "Sudo Groups",
+      "default": "",
+      "description": "Groups who are allowed sudo ALL",
+      "recipes": [
+
+      ],
+      "type": "array",
+      "calculated": false,
+      "required": "optional"
+    },
+    "authorization/sudo": {
+      "choice": [
+
+      ],
+      "display_name": "Authorization Sudoers",
+      "description": "Hash of Authorization/Sudo attributes",
+      "recipes": [
+
+      ],
+      "type": "hash",
+      "calculated": false,
+      "required": "optional"
+    },
+    "authorization/sudo/users": {
+      "choice": [
+
+      ],
+      "display_name": "Sudo Users",
+      "default": "",
+      "description": "Users who are allowed sudo ALL",
+      "recipes": [
+
+      ],
+      "type": "array",
+      "calculated": false,
+      "required": "optional"
+    }
+  },
+  "platforms": {
+    "freebsd": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "redhat": ">= 0.0.0"
+  },
   "long_description": "",
+  "name": "sudo",
+  "suggestions": {
+  },
   "providing": {
-  },
-  "conflicting": {
-  },
-  "maintainer": "Opscode, Inc.",
-  "description": "Installs sudo and configures /etc/sudoers"
+  }
 }
