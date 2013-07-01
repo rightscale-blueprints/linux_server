@@ -1,62 +1,62 @@
 {
-  "maintainer_email": "chris@xhost.com.au",
-  "version": "0.0.1",
-  "conflicting": {
-  },
-  "maintainer": "Chris Fordham",
-  "name": "rubygems",
-  "recipes": {
-    "rubygems::update_gems": "Updates installed RubyGems.",
-    "rubygems::install_gems": "Installs a list of RubyGems into system.",
-    "rubygems::default": "Installs RubyGems"
-  },
   "replacing": {
   },
-  "dependencies": {
-    "ruby": ">= 0.0.0"
+  "maintainer_email": "chris@xhost.com.au",
+  "suggestions": {
+  },
+  "recommendations": {
   },
   "attributes": {
-    "rubygems/gems_install": {
-      "display_name": "RubyGems Install",
-      "recipes": [
-        "rubygems::install_gems"
-      ],
-      "required": "optional",
-      "choice": [
-
-      ],
-      "description": "An array or string of RubyGems to install system wide.",
-      "calculated": false,
-      "type": "string"
-    },
     "ruby/install_source": {
-      "display_name": "Ruby Install Source",
-      "recipes": [
-        "rubygems::default"
-      ],
-      "required": "optional",
+      "type": "string",
       "choice": [
         "package",
         "ruby1.9.1",
         "ruby1.9.3",
         "none"
       ],
+      "display_name": "Ruby Install Source",
+      "required": "optional",
+      "recipes": [
+        "rubygems::default"
+      ],
       "description": "The install source for Ruby: none, ruby1.9.1, ruby1.9.3 or package (default: package).",
-      "calculated": false,
-      "type": "string"
+      "calculated": false
+    },
+    "rubygems/gems_install": {
+      "type": "string",
+      "choice": [
+
+      ],
+      "display_name": "RubyGems Install",
+      "required": "optional",
+      "recipes": [
+        "rubygems::install_gems"
+      ],
+      "description": "An array or string of RubyGems to install system wide.",
+      "calculated": false
     }
   },
-  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "dependencies": {
+    "ruby": ">= 0.0.0"
+  },
+  "maintainer": "Chris Fordham",
   "providing": {
   },
-  "recommendations": {
+  "conflicting": {
   },
   "groupings": {
-  },
-  "suggestions": {
   },
   "platforms": {
   },
   "license": "Apache 2.0",
-  "description": "Installs/Configures rubygems"
+  "recipes": {
+    "rubygems::update_gems": "Updates installed RubyGems.",
+    "rubygems::default": "Installs RubyGems",
+    "rubygems::install_gems": "Installs a list of RubyGems into system."
+  },
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "description": "Installs/Configures rubygems",
+  "version": "0.0.1",
+  "name": "rubygems"
 }

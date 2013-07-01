@@ -40,7 +40,7 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rightscale
   ref: master
-  sha: 441550944724127137b586f0d858d992aa1ca16f
+  sha: 95fc01fe287c0afafc4dbc83ede926d74fed6631
   specs:
     rightscale (0.0.1)
       collectd (>= 0.0.0)
