@@ -1,0 +1,18 @@
+{
+  "system": {
+    "short_hostname":"linux",
+    "domain_name":"localdomain"
+  },
+  "authorization": {
+    "sudo": {
+      "groups": [ "vagrant" ],
+      "users": [ "vagrant" ],
+      "passwordless":"true",
+      "include_sudoers_d":"true"
+    }
+  },
+  "system": {
+    "upgrade_packages":"false"
+  },
+  "run_list": [ "recipe[system]", "recipe[system::update_package_list]", "recipe[system::upgrade_packages]", "recipe[ntp]", "recipe[resolver]", "recipe[cron]", "recipe[sudo]", "recipe[python]", "recipe[ruby]", "recipe[rubygems]", "recipe[rubygems::install_gems]" ]
+}
