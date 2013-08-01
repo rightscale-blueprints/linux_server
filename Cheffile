@@ -8,6 +8,11 @@ cookbook 'system',
    :path => 'cookbooks/system',
    :ref => 'master'
 
+cookbook 'apt',
+   :git => 'https://github.com/flaccid/cookbooks',
+   :path => 'cookbooks/system',
+   :ref => 'master'
+
 cookbook 'rightscale',
    :git => 'https://github.com/flaccid/cookbooks',
    :path => 'cookbooks/rightscale',
@@ -16,11 +21,6 @@ cookbook 'rightscale',
 cookbook 'resolver',
    :git => 'https://github.com/flaccid/cookbooks',
    :path => 'cookbooks/resolver',
-   :ref => 'master'
-
-cookbook 'rest_connection',
-   :git => 'https://github.com/flaccid/cookbooks',
-   :path => 'cookbooks/rest_connection',
    :ref => 'master'
 
 cookbook 'ruby',

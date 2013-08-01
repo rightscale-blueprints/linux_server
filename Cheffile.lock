@@ -1,8 +1,8 @@
 SITE
   remote: http://community.opscode.com/api/v1
   specs:
-    build-essential (1.1.0)
-    yum (0.8.0)
+    build-essential (1.4.0)
+    yum (2.3.0)
 
 GIT
   remote: https://github.com/coderanger/chef-collectd_plugins
@@ -24,23 +24,15 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/resolver
   ref: master
-  sha: c9a2978a06be2264d498e57864fa7ec935eb1f14
+  sha: 28bcd8b2633f3687f7c1c53d56f65d03594081e9
   specs:
     resolver (0.8.2)
 
 GIT
   remote: https://github.com/flaccid/cookbooks
-  path: cookbooks/rest_connection
-  ref: master
-  sha: 92f48a4b71adc5cb91dde0663447506599c81eec
-  specs:
-    rest_connection (0.0.1)
-
-GIT
-  remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rightscale
   ref: master
-  sha: 95fc01fe287c0afafc4dbc83ede926d74fed6631
+  sha: 28bcd8b2633f3687f7c1c53d56f65d03594081e9
   specs:
     rightscale (0.0.1)
       collectd (>= 0.0.0)
@@ -49,7 +41,7 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/ruby
   ref: master
-  sha: c9a2978a06be2264d498e57864fa7ec935eb1f14
+  sha: 28bcd8b2633f3687f7c1c53d56f65d03594081e9
   specs:
     ruby (0.0.1)
 
@@ -57,7 +49,7 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rubygems
   ref: master
-  sha: c9a2978a06be2264d498e57864fa7ec935eb1f14
+  sha: 28bcd8b2633f3687f7c1c53d56f65d03594081e9
   specs:
     rubygems (0.0.1)
       ruby (>= 0.0.0)
@@ -66,57 +58,60 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/system
   ref: master
-  sha: 4c4d7ff83aba53d1153260730319edc9bad8899c
+  sha: 28bcd8b2633f3687f7c1c53d56f65d03594081e9
   specs:
+    apt (0.0.1)
+      cron (>= 0.0.0)
     system (0.0.1)
       cron (>= 0.0.0)
 
 GIT
   remote: https://github.com/opscode-cookbooks/apache2
   ref: master
-  sha: 5e4b354d8e0a541e280be01c7edad0e19040ddba
+  sha: d163d2584ebcc8dbe784c5c9be087c69d618d063
   specs:
     apache2 (1.6.7)
 
 GIT
   remote: https://github.com/opscode-cookbooks/cron
   ref: master
-  sha: 218169840e5a8ceeb31d6057517101f74dde8cb8
+  sha: af525c93c79eb7a789cf9bc23f19f4d1793bbd55
   specs:
     cron (1.2.5)
 
 GIT
   remote: https://github.com/opscode-cookbooks/ntp
   ref: master
-  sha: 3991185e38b07a09f8a6a4994dc6d778670a11a2
+  sha: 866f12c812f03c3fdb46d076315c8ff808e762be
   specs:
-    ntp (1.1.9)
+    ntp (1.3.2)
 
 GIT
   remote: https://github.com/opscode-cookbooks/postfix
   ref: master
-  sha: 02b9f246e128ba70304bcdb586949690feb24918
+  sha: 3d18ce0e397a5dfb996848c9db44e0e794b332f8
   specs:
-    postfix (2.0.1)
+    postfix (2.1.7)
 
 GIT
   remote: https://github.com/opscode-cookbooks/python
   ref: master
-  sha: e7d06b4db5aec229a4737b8025482df013ebaefe
+  sha: 345c56acefdd8670938cd7d29a19fc5394aad9fc
   specs:
-    python (1.0.8)
+    python (1.3.7)
       build-essential (>= 0.0.0)
       yum (>= 0.0.0)
 
 GIT
   remote: https://github.com/opscode-cookbooks/sudo
   ref: master
-  sha: e08de50f3d9327edb55676b1b6adb113ddc819dc
+  sha: a503303c8df8e832de5252169f4c02540b46667c
   specs:
-    sudo (1.1.1)
+    sudo (2.1.5)
 
 DEPENDENCIES
   apache2 (>= 0)
+  apt (>= 0)
   collectd (>= 0)
   collectd_plugins (>= 0)
   cron (>= 0)
@@ -124,7 +119,6 @@ DEPENDENCIES
   postfix (>= 0)
   python (>= 0)
   resolver (>= 0)
-  rest_connection (>= 0)
   rightscale (>= 0)
   ruby (>= 0)
   rubygems (>= 0)
