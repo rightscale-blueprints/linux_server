@@ -30,6 +30,14 @@ GIT
 
 GIT
   remote: https://github.com/flaccid/cookbooks
+  path: cookbooks/rest_connection
+  ref: master
+  sha: 28bcd8b2633f3687f7c1c53d56f65d03594081e9
+  specs:
+    rest_connection (0.0.1)
+
+GIT
+  remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rightscale
   ref: master
   sha: 28bcd8b2633f3687f7c1c53d56f65d03594081e9
@@ -119,6 +127,7 @@ DEPENDENCIES
   postfix (>= 0)
   python (>= 0)
   resolver (>= 0)
+  rest_connection (>= 0)
   rightscale (>= 0)
   ruby (>= 0)
   rubygems (>= 0)

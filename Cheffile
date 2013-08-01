@@ -18,6 +18,11 @@ cookbook 'rightscale',
    :path => 'cookbooks/rightscale',
    :ref => 'master'
 
+cookbook 'rest_connection',
+   :git => 'https://github.com/flaccid/cookbooks',
+   :path => 'cookbooks/rest_connection',
+   :ref => 'master'
+
 cookbook 'resolver',
    :git => 'https://github.com/flaccid/cookbooks',
    :path => 'cookbooks/resolver',
