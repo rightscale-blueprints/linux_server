@@ -1,13 +1,15 @@
-## [COOK-1298]
+## v1.3.2:
 
-* Refactor cookbook for simplified data-driven recipe code
-* Add test scaffolding
-* Add rake tasks for attribute testing and foodcritic
-* Deprecate ntp::disable in favor of separate ntp::undo and ntp::ntpdate
-* ntp::ntpdate now operates based on boolean "disable" attribute
-* Add Travis CI integration
-* Update documentation and metadata
-* Add reference documentation for cookbook testing
+* [COOK-2024] - update leapfile for IERS Bulletin C
+
+## v1.3.0:
+
+* [COOK-1404] - add leapfile for handling leap seconds
+
+## v1.2.0:
+
+* [COOK-1184] - Add recipe to disable NTP completely
+* [COOK-1298] - Refactor into a reference cookbook for testing
 
 ## v1.1.8:
 
