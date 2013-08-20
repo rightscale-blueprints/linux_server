@@ -1,65 +1,65 @@
 {
-  "dependencies": {
+  "description": "Configures /etc/resolv.conf",
+  "providing": {
   },
-  "name": "resolver",
-  "maintainer_email": "cookbooks@opscode.com",
   "attributes": {
-    "resolver/nameservers": {
-      "required": "optional",
-      "calculated": false,
-      "choice": [
-
-      ],
-      "type": "array",
-      "recipes": [
-        "resolver::default"
-      ],
-      "display_name": "Resolver Nameservers",
-      "description": "Default nameservers"
-    },
     "resolver/search": {
+      "description": "Default domain to search",
       "required": "optional",
+      "display_name": "Resolver Search",
       "calculated": false,
-      "choice": [
-
-      ],
-      "type": "string",
       "recipes": [
         "resolver::default"
       ],
-      "display_name": "Resolver Search",
-      "description": "Default domain to search"
+      "choice": [
+
+      ],
+      "type": "string"
+    },
+    "resolver/nameservers": {
+      "description": "Default nameservers",
+      "required": "optional",
+      "display_name": "Resolver Nameservers",
+      "calculated": false,
+      "recipes": [
+        "resolver::default"
+      ],
+      "choice": [
+
+      ],
+      "type": "array"
     }
   },
-  "license": "Apache 2.0",
-  "suggestions": {
-  },
-  "platforms": {
-    "openbsd": ">= 0.0.0",
-    "debian": ">= 0.0.0",
-    "centos": ">= 0.0.0",
-    "fedora": ">= 0.0.0",
-    "macosx": ">= 0.0.0",
-    "freebsd": ">= 0.0.0",
-    "ubuntu": ">= 0.0.0",
-    "redhat": ">= 0.0.0"
-  },
-  "maintainer": "Opscode, Inc.",
-  "long_description": "DESCRIPTION\n===========\n\nConfigures /etc/resolv.conf.\n\nUSAGE\n=====\n\nSet the resolver attributes in a role, for example from my base.rb:\n\n    \"resolver\" => {\n      \"nameservers\" => [\"10.13.37.120\", \"10.13.37.40\"],\n      \"search\" => \"int.example.org\"\n    }\n\nThe resulting /etc/resolv.conf will look like:\n\n    domain int.example.org\n    search int.example.org\n    nameserver 10.13.37.120\n    nameserver 10.13.37.40\n\nLICENSE AND AUTHOR\n==================\n\nAuthor:: Joshua Timberman (<joshua@opscode.com>)\n\nCopyright 2009, Opscode, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
-  "version": "0.8.2",
   "recommendations": {
   },
-  "recipes": {
-    "resolver::rs_run_resolver": "Runs the rs_run_resolver recipe with rs_run_recipe (for RightScale servers only).",
-    "resolver": "Configures /etc/resolv.conf via attributes."
+  "name": "resolver",
+  "long_description": "DESCRIPTION\n===========\n\nConfigures /etc/resolv.conf.\n\nUSAGE\n=====\n\nSet the resolver attributes in a role, for example from my base.rb:\n\n    \"resolver\" => {\n      \"nameservers\" => [\"10.13.37.120\", \"10.13.37.40\"],\n      \"search\" => \"int.example.org\"\n    }\n\nThe resulting /etc/resolv.conf will look like:\n\n    domain int.example.org\n    search int.example.org\n    nameserver 10.13.37.120\n    nameserver 10.13.37.40\n\nLICENSE AND AUTHOR\n==================\n\nAuthor:: Joshua Timberman (<joshua@opscode.com>)\n\nCopyright 2009, Opscode, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "dependencies": {
   },
-  "groupings": {
+  "license": "Apache 2.0",
+  "recipes": {
+    "resolver": "Configures /etc/resolv.conf via attributes.",
+    "resolver::rs_run_resolver": "Runs the rs_run_resolver recipe with rs_run_recipe (for RightScale servers only)."
+  },
+  "suggestions": {
+  },
+  "maintainer_email": "cookbooks@opscode.com",
+  "version": "0.8.2",
+  "replacing": {
   },
   "conflicting": {
   },
-  "replacing": {
+  "groupings": {
   },
-  "description": "Configures /etc/resolv.conf",
-  "providing": {
-  }
+  "platforms": {
+    "fedora": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "openbsd": ">= 0.0.0",
+    "macosx": ">= 0.0.0",
+    "freebsd": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "centos": ">= 0.0.0"
+  },
+  "maintainer": "Opscode, Inc."
 }

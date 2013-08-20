@@ -1,46 +1,33 @@
 {
-  "version": "0.0.1",
-  "recipes": {
-    "system::default": "Set the system hostname and timezone.",
-    "system::hostname": "Sets the system hostname.",
-    "system::timezone": "Sets the system timezone."
-  },
-  "conflicting": {
-  },
-  "replacing": {
-  },
-  "recommendations": {
-  },
   "description": "Installs/Configures system elements such as the hostname and timezone.",
-  "name": "system",
-  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
-  "groupings": {
+  "providing": {
   },
-  "maintainer_email": "chris@xhost.com.au",
   "attributes": {
     "system/short_hostname": {
+      "description": "The short hostname that you would like this node to have, e.g. kryten",
+      "default": "localhost",
+      "required": "recommended",
+      "display_name": "Short Hostname",
+      "calculated": false,
       "recipes": [
         "system::hostname",
         "system::default"
       ],
-      "default": "localhost",
-      "required": "recommended",
-      "description": "The short hostname that you would like this node to have, e.g. kryten",
       "choice": [
 
       ],
-      "calculated": false,
-      "display_name": "Short Hostname",
       "type": "string"
     },
     "system/timezone": {
+      "description": "Sets the system time to the timezone of the specified input, which must be a valid zoneinfo/tz database entry.  If the input is 'unset' the timezone will use the 'localtime' that's defined in your RightScale account under Settings -> User -> Preferences tab.  You can find a list of valid examples from the timezone pulldown bar in the Preferences tab. The server will not be updated for daylight savings time.  Ex: US/Pacific, US/Eastern",
+      "default": "UTC",
+      "required": "optional",
+      "display_name": "Timezone",
+      "calculated": false,
       "recipes": [
         "system::timezone",
         "system::default"
       ],
-      "default": "UTC",
-      "required": "optional",
-      "description": "Sets the system time to the timezone of the specified input, which must be a valid zoneinfo/tz database entry.  If the input is 'unset' the timezone will use the 'localtime' that's defined in your RightScale account under Settings -> User -> Preferences tab.  You can find a list of valid examples from the timezone pulldown bar in the Preferences tab. The server will not be updated for daylight savings time.  Ex: US/Pacific, US/Eastern",
       "choice": [
         "Africa/Casablanca",
         "America/Bogota",
@@ -111,41 +98,99 @@
         "UTC",
         "localtime"
       ],
-      "calculated": false,
-      "display_name": "Timezone",
       "type": "string"
     },
     "system/domain_name": {
+      "description": "The domain name that you would like this node to have, e.g. domain.suf. Note: Only set a valid domain name to satisfy the resolution of a FQDN; use ignore:ignore for no domain name.",
+      "default": "localdomain",
+      "required": "recommended",
+      "display_name": "Domain Name",
+      "calculated": false,
       "recipes": [
         "system::hostname",
         "system::default"
       ],
-      "default": "localdomain",
-      "required": "recommended",
-      "description": "The domain name that you would like this node to have, e.g. domain.suf. Note: Only set a valid domain name to satisfy the resolution of a FQDN; use ignore:ignore for no domain name.",
       "choice": [
 
       ],
-      "calculated": false,
-      "display_name": "Domain Name",
       "type": "string"
+    },
+    "system/upgrade_packages": {
+      "description": "Whether or not the system::upgrade_packages recipe will physically update the system's installed packages (in compile time).",
+      "default": "true",
+      "required": "optional",
+      "display_name": "Upgrade Packages",
+      "calculated": false,
+      "recipes": [
+        "system::upgrade_packages"
+      ],
+      "choice": [
+        "true",
+        "false"
+      ],
+      "type": "string"
+    },
+    "system/packages/install_compile_time": {
+      "description": "An array of system packages to install with the package resource in compile phase.",
+      "required": "optional",
+      "display_name": "Install Packages Compile Phase",
+      "calculated": false,
+      "recipes": [
+        "system::install_packages"
+      ],
+      "choice": [
+
+      ],
+      "type": "array"
+    },
+    "system/packages/install": {
+      "description": "An array of system packages to install with the package resource in execute phase.",
+      "required": "optional",
+      "display_name": "Install Packages",
+      "calculated": false,
+      "recipes": [
+        "system::install_packages"
+      ],
+      "choice": [
+
+      ],
+      "type": "array"
     }
+  },
+  "recommendations": {
+  },
+  "name": "apt",
+  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
+  "dependencies": {
+    "cron": ">= 0.0.0",
+    "apt": ">= 0.0.0"
+  },
+  "license": "Apache 2.0",
+  "recipes": {
+    "system::default": "Set the system hostname and timezone.",
+    "system::install_packages": "Installs packages to the system with it's native package manager.",
+    "system::update_package_list": "Updates the system's list of packages in the package manager's cache.",
+    "system::hostname": "Sets the system hostname.",
+    "system::upgrade_packages": "Upgrades the system's installed packages.",
+    "system::timezone": "Sets the system timezone."
   },
   "suggestions": {
   },
+  "maintainer_email": "chris@xhost.com.au",
+  "version": "0.0.1",
+  "replacing": {
+  },
+  "conflicting": {
+  },
+  "groupings": {
+  },
   "platforms": {
+    "fedora": ">= 0.0.0",
+    "debian": ">= 0.0.0",
     "ubuntu": ">= 0.0.0",
     "archlinux": ">= 0.0.0",
-    "debian": ">= 0.0.0",
-    "fedora": ">= 0.0.0",
-    "centos": ">= 0.0.0",
-    "redhat": ">= 0.0.0"
+    "redhat": ">= 0.0.0",
+    "centos": ">= 0.0.0"
   },
-  "providing": {
-  },
-  "dependencies": {
-    "cron": ">= 0.0.0"
-  },
-  "license": "Apache 2.0",
   "maintainer": "Chris Fordham"
 }

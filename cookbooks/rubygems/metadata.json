@@ -1,62 +1,62 @@
 {
+  "description": "Installs/Configures rubygems",
   "providing": {
   },
-  "dependencies": {
-    "ruby": ">= 0.0.0"
-  },
-  "maintainer": "Chris Fordham",
-  "groupings": {
-  },
-  "conflicting": {
-  },
-  "license": "Apache 2.0",
   "attributes": {
+    "rubygems/gems_install": {
+      "description": "An array or string of RubyGems to install system wide.",
+      "required": "optional",
+      "display_name": "RubyGems Install",
+      "calculated": false,
+      "recipes": [
+        "rubygems::install_gems"
+      ],
+      "choice": [
+
+      ],
+      "type": "string"
+    },
     "ruby/install_source": {
+      "description": "The install source for Ruby: none, ruby1.9.1, ruby1.9.3 or package (default: package).",
+      "required": "optional",
       "display_name": "Ruby Install Source",
       "calculated": false,
-      "required": "optional",
+      "recipes": [
+        "rubygems::default"
+      ],
       "choice": [
         "package",
         "ruby1.9.1",
         "ruby1.9.3",
         "none"
       ],
-      "description": "The install source for Ruby: none, ruby1.9.1, ruby1.9.3 or package (default: package).",
-      "type": "string",
-      "recipes": [
-        "rubygems::default"
-      ]
-    },
-    "rubygems/gems_install": {
-      "display_name": "RubyGems Install",
-      "calculated": false,
-      "required": "optional",
-      "choice": [
-
-      ],
-      "description": "An array or string of RubyGems to install system wide.",
-      "type": "string",
-      "recipes": [
-        "rubygems::install_gems"
-      ]
+      "type": "string"
     }
+  },
+  "recommendations": {
+  },
+  "name": "rubygems",
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "dependencies": {
+    "ruby": ">= 0.0.0"
+  },
+  "license": "Apache 2.0",
+  "recipes": {
+    "rubygems::update_gems": "Updates installed RubyGems.",
+    "rubygems::default": "Installs RubyGems",
+    "rubygems::install_gems": "Installs a list of RubyGems into system."
   },
   "suggestions": {
   },
-  "platforms": {
-  },
-  "description": "Installs/Configures rubygems",
-  "recommendations": {
-  },
   "maintainer_email": "chris@xhost.com.au",
-  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
-  "name": "rubygems",
+  "version": "0.0.1",
   "replacing": {
   },
-  "version": "0.0.1",
-  "recipes": {
-    "rubygems::update_gems": "Updates installed RubyGems.",
-    "rubygems::install_gems": "Installs a list of RubyGems into system.",
-    "rubygems::default": "Installs RubyGems"
-  }
+  "conflicting": {
+  },
+  "groupings": {
+  },
+  "platforms": {
+  },
+  "maintainer": "Chris Fordham"
 }

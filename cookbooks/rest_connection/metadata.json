@@ -1,31 +1,31 @@
 {
-  "recipes": {
-    "rest_connection::default": "Installs and configures RestConnection for use with the RightScale API.",
-    "rest_connection::install": "Installs the rest_connection RubyGem only."
-  },
-  "suggestions": {
-  },
-  "platforms": {
-  },
-  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
-  "conflicting": {
-  },
   "description": "Installs/Configures rest_connection",
   "providing": {
   },
-  "dependencies": {
-  },
-  "maintainer": "Chris Fordham",
-  "version": "0.0.1",
   "attributes": {
   },
-  "replacing": {
-  },
-  "maintainer_email": "chris@xhost.com.au",
-  "groupings": {
-  },
-  "name": "rest_connection",
   "recommendations": {
   },
-  "license": "Apache 2.0"
+  "name": "rest_connection",
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "dependencies": {
+  },
+  "license": "Apache 2.0",
+  "recipes": {
+    "rest_connection::install": "Installs the rest_connection RubyGem only.",
+    "rest_connection::default": "Installs and configures RestConnection for use with the RightScale API."
+  },
+  "suggestions": {
+  },
+  "maintainer_email": "chris@xhost.com.au",
+  "version": "0.0.1",
+  "replacing": {
+  },
+  "conflicting": {
+  },
+  "groupings": {
+  },
+  "platforms": {
+  },
+  "maintainer": "Chris Fordham"
 }
