@@ -1,65 +1,65 @@
 {
-  "replacing": {
-  },
-  "providing": {
-  },
-  "maintainer_email": "cookbooks@opscode.com",
   "name": "resolver",
-  "suggestions": {
-  },
   "description": "Configures /etc/resolv.conf",
-  "version": "0.8.2",
-  "recommendations": {
+  "long_description": "DESCRIPTION\n===========\n\nConfigures /etc/resolv.conf.\n\nUSAGE\n=====\n\nSet the resolver attributes in a role, for example from my base.rb:\n\n    \"resolver\" => {\n      \"nameservers\" => [\"10.13.37.120\", \"10.13.37.40\"],\n      \"search\" => \"int.example.org\"\n    }\n\nThe resulting /etc/resolv.conf will look like:\n\n    domain int.example.org\n    search int.example.org\n    nameserver 10.13.37.120\n    nameserver 10.13.37.40\n\nLICENSE AND AUTHOR\n==================\n\nAuthor:: Joshua Timberman (<joshua@opscode.com>)\n\nCopyright 2009, Opscode, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "maintainer": "Opscode, Inc.",
+  "maintainer_email": "cookbooks@opscode.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "freebsd": ">= 0.0.0",
+    "openbsd": ">= 0.0.0",
+    "macosx": ">= 0.0.0"
   },
   "dependencies": {
   },
-  "long_description": "DESCRIPTION\n===========\n\nConfigures /etc/resolv.conf.\n\nUSAGE\n=====\n\nSet the resolver attributes in a role, for example from my base.rb:\n\n    \"resolver\" => {\n      \"nameservers\" => [\"10.13.37.120\", \"10.13.37.40\"],\n      \"search\" => \"int.example.org\"\n    }\n\nThe resulting /etc/resolv.conf will look like:\n\n    domain int.example.org\n    search int.example.org\n    nameserver 10.13.37.120\n    nameserver 10.13.37.40\n\nLICENSE AND AUTHOR\n==================\n\nAuthor:: Joshua Timberman (<joshua@opscode.com>)\n\nCopyright 2009, Opscode, Inc.\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
-  "recipes": {
-    "resolver::rs_run_resolver": "Runs the rs_run_resolver recipe with rs_run_recipe (for RightScale servers only).",
-    "resolver": "Configures /etc/resolv.conf via attributes."
+  "recommendations": {
   },
-  "attributes": {
-    "resolver/nameservers": {
-      "choice": [
-
-      ],
-      "description": "Default nameservers",
-      "calculated": false,
-      "recipes": [
-        "resolver::default"
-      ],
-      "display_name": "Resolver Nameservers",
-      "required": "optional",
-      "type": "array"
-    },
-    "resolver/search": {
-      "choice": [
-
-      ],
-      "description": "Default domain to search",
-      "calculated": false,
-      "recipes": [
-        "resolver::default"
-      ],
-      "display_name": "Resolver Search",
-      "required": "optional",
-      "type": "string"
-    }
-  },
-  "maintainer": "Opscode, Inc.",
-  "platforms": {
-    "redhat": ">= 0.0.0",
-    "fedora": ">= 0.0.0",
-    "ubuntu": ">= 0.0.0",
-    "centos": ">= 0.0.0",
-    "openbsd": ">= 0.0.0",
-    "freebsd": ">= 0.0.0",
-    "macosx": ">= 0.0.0",
-    "debian": ">= 0.0.0"
-  },
-  "license": "Apache 2.0",
-  "groupings": {
+  "suggestions": {
   },
   "conflicting": {
-  }
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "resolver/search": {
+      "display_name": "Resolver Search",
+      "description": "Default domain to search",
+      "recipes": [
+        "resolver::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "resolver/nameservers": {
+      "display_name": "Resolver Nameservers",
+      "description": "Default nameservers",
+      "type": "array",
+      "recipes": [
+        "resolver::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "resolver": "Configures /etc/resolv.conf via attributes.",
+    "resolver::rs_run_resolver": "Runs the rs_run_resolver recipe with rs_run_recipe (for RightScale servers only)."
+  },
+  "version": "0.8.2"
 }

@@ -1,118 +1,118 @@
 {
-  "replacing": {
-  },
-  "providing": {
-  },
-  "maintainer_email": "cookbooks@opscode.com",
   "name": "sudo",
-  "suggestions": {
-  },
   "description": "Installs sudo and configures /etc/sudoers",
-  "version": "2.1.5",
-  "recommendations": {
+  "long_description": "",
+  "maintainer": "Opscode, Inc.",
+  "maintainer_email": "cookbooks@opscode.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "redhat": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "freebsd": ">= 0.0.0"
   },
   "dependencies": {
   },
-  "long_description": "",
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "authorization": {
+      "display_name": "Authorization",
+      "description": "Hash of Authorization attributes",
+      "type": "hash",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "authorization/sudo": {
+      "display_name": "Authorization Sudoers",
+      "description": "Hash of Authorization/Sudo attributes",
+      "type": "hash",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "authorization/sudo/users": {
+      "display_name": "Sudo Users",
+      "description": "Users who are allowed sudo ALL",
+      "type": "array",
+      "default": "",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "authorization/sudo/groups": {
+      "display_name": "Sudo Groups",
+      "description": "Groups who are allowed sudo ALL",
+      "type": "array",
+      "default": "",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "authorization/sudo/passwordless": {
+      "display_name": "Passwordless Sudo",
+      "description": "",
+      "type": "string",
+      "default": "false",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "authorization/sudo/include_sudoers_d": {
+      "display_name": "Include sudoers.d",
+      "description": "Whether to create the sudoers.d includedir",
+      "type": "string",
+      "default": "false",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+  },
   "recipes": {
     "sudo": "Installs sudo and configures /etc/sudoers"
   },
-  "attributes": {
-    "authorization/sudo/groups": {
-      "choice": [
-
-      ],
-      "description": "Groups who are allowed sudo ALL",
-      "calculated": false,
-      "recipes": [
-
-      ],
-      "display_name": "Sudo Groups",
-      "default": "",
-      "required": "optional",
-      "type": "array"
-    },
-    "authorization/sudo": {
-      "choice": [
-
-      ],
-      "description": "Hash of Authorization/Sudo attributes",
-      "calculated": false,
-      "recipes": [
-
-      ],
-      "display_name": "Authorization Sudoers",
-      "required": "optional",
-      "type": "hash"
-    },
-    "authorization": {
-      "choice": [
-
-      ],
-      "description": "Hash of Authorization attributes",
-      "calculated": false,
-      "recipes": [
-
-      ],
-      "display_name": "Authorization",
-      "required": "optional",
-      "type": "hash"
-    },
-    "authorization/sudo/include_sudoers_d": {
-      "choice": [
-
-      ],
-      "description": "Whether to create the sudoers.d includedir",
-      "calculated": false,
-      "recipes": [
-
-      ],
-      "display_name": "Include sudoers.d",
-      "default": "false",
-      "required": "optional",
-      "type": "string"
-    },
-    "authorization/sudo/passwordless": {
-      "choice": [
-
-      ],
-      "description": "",
-      "calculated": false,
-      "recipes": [
-
-      ],
-      "display_name": "Passwordless Sudo",
-      "default": "false",
-      "required": "optional",
-      "type": "string"
-    },
-    "authorization/sudo/users": {
-      "choice": [
-
-      ],
-      "description": "Users who are allowed sudo ALL",
-      "calculated": false,
-      "recipes": [
-
-      ],
-      "display_name": "Sudo Users",
-      "default": "",
-      "required": "optional",
-      "type": "array"
-    }
-  },
-  "maintainer": "Opscode, Inc.",
-  "platforms": {
-    "redhat": ">= 0.0.0",
-    "fedora": ">= 0.0.0",
-    "ubuntu": ">= 0.0.0",
-    "centos": ">= 0.0.0",
-    "freebsd": ">= 0.0.0",
-    "debian": ">= 0.0.0"
-  },
-  "license": "Apache 2.0",
-  "groupings": {
-  },
-  "conflicting": {
-  }
+  "version": "2.1.5"
 }
