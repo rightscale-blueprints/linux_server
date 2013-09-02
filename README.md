@@ -138,7 +138,7 @@ For more information on using Chef Solo, see http://wiki.opscode.com/display/che
 
 ##Install Librarian
 
-	sudo gem install librarian --no-rdoc --no-ri
+	sudo gem install librarian-chef --no-rdoc --no-ri
 
 ##Updating cookbooks
 
