@@ -228,5 +228,5 @@
     "rightscale::standardize_chef_version": "Fix Chef version to standard GNU versioning instead of RightScale fork.",
     "rightscale::connect": "Connect the host to RightScale via BlueSkies."
   },
-  "version": "0.0.1"
+  "version": "0.1.0"
 }

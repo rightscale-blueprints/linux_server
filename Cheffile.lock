@@ -32,7 +32,7 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rest_connection
   ref: master
-  sha: 28bcd8b2633f3687f7c1c53d56f65d03594081e9
+  sha: ea71c897d3a1425dbc2f3de70357923fd73d88d5
   specs:
     rest_connection (0.0.1)
 
@@ -40,10 +40,11 @@ GIT
   remote: https://github.com/flaccid/cookbooks
   path: cookbooks/rightscale
   ref: master
-  sha: 94f60dc985d97da163aafa7531eff9d5bf2d6956
+  sha: ea71c897d3a1425dbc2f3de70357923fd73d88d5
   specs:
-    rightscale (0.0.1)
+    rightscale (0.1.0)
       collectd (>= 0.0.0)
+      rest_connection (>= 0.0.0)
 
 GIT
   remote: https://github.com/flaccid/cookbooks
@@ -76,7 +77,7 @@ GIT
 GIT
   remote: https://github.com/opscode-cookbooks/apache2
   ref: master
-  sha: d0ae4a3f8ea355232f597b39d95a251efdb3a6bc
+  sha: 97d1a1ca279814789aa4c37247641e76815600e8
   specs:
     apache2 (1.7.0)
 
