@@ -79,18 +79,18 @@ Follow the VirtualBox documentation to install VirtualBox if not already install
 
 	$ gem install vagrant --no-rdoc --no-ri
 
-###Setup node.json
-
-Copy the default node.json from share/chef-solo to get started.
-
-	$ cp -v share/chef-solo/node.json.default node.json
-  
 ###Clone the linux_server Blueprint
 
 	$ mkdir -p ~/src/github/rightscale-blueprints
 	$ cd ~/src/github/rightscale-blueprints
 	$ git clone git://github.com/rightscale-blueprints/linux_server.git
 	$ cd linux_server/vagrant
+
+###Setup node.json
+
+Copy the default node.json from share/chef-solo to get started using a basic run_list and set of node attributes.
+
+	$ cp -v share/chef-solo/node.json.default node.json
 
 ###Run with Vagrant
 
