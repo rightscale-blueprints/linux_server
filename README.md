@@ -98,6 +98,7 @@ Already up'd a linux_server box?
 
 	#vagrant status                   # check vm status
 	#vagrant reload                   # reload the vm
+	#vagrant provision                # (re-)provision the vm
 	#vagrant suspend                  # suspend the vm
 	#vagrant halt                     # power down the vm
 	#vagrant destroy                  # destroy the vm
